@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { EventsComponent } from './components/events/events.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SpecialEventsComponent } from './components/special-events/special-even
     LoginComponent,
     RegistrationComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

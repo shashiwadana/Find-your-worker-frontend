@@ -4,38 +4,39 @@ import { EventsComponent } from './components/events/events.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 const routes: Routes = [
   
   {
     path:'',
-    redirectTo:'/events',
+    redirectTo:'events',
     pathMatch:'full'
   },
 
   {
-    path:'components/events',
+    path:'events',
     component:EventsComponent
   },
 
   {
-    path:'components/login',
+    path:'login',
     component:LoginComponent
   },
   {
-    path:'components/registration',
+    path:'registration',
     component:RegistrationComponent
   },
   {
-    path:'components/special-events',
+    path:'special-events',
     component:SpecialEventsComponent
   },
-
-
-
-
-
-
+  {
+    path:'navbar',
+    component:NavbarComponent
+  }
 ];
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
