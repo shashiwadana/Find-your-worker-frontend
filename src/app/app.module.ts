@@ -14,6 +14,7 @@ import { EventsComponent } from './components/events/events.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
+import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthService } from './services/auth.service';
     RegistrationComponent,
     EventsComponent,
     SpecialEventsComponent,
-    NavbarComponent
+    NavbarComponent,
+    WorkerSearchComponent
   ],
   imports: [
     BrowserModule,

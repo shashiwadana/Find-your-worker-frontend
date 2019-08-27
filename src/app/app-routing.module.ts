@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthGuard } from './auth.guard';
+import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 const routes: Routes = [
   
   {
@@ -28,12 +30,17 @@ const routes: Routes = [
   },
   {
     path:'special-events',
-    component:SpecialEventsComponent
+    component:SpecialEventsComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'navbar',
     component:NavbarComponent
-  }
+  },
+  {
+    path:'worker-search',
+    component:WorkerSearchComponent
+  },
 ];
 
 
