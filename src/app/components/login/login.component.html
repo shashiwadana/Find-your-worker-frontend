@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="col-md-6 col-xl-5 offset-xl-3">
+        <mdb-card class="wow fadeInRight example z-depth-5"  data-wow-delay="0.3s" >
+         <mdb-card-body>
+           <!--Header-->
+           <div class="text-center">
+             <h3 class="black-text">
+               <mdb-icon fas icon="user" class="text-brown"></mdb-icon> Login:</h3>
+             <hr class="hr-light">
+           </div>
+           <!--Body-->
+           
+           <div class="md-form">
+             <mdb-icon fas icon="envelope" class="text-black-50 active"></mdb-icon>
+             <input [(ngModel)]="loginUserData.email" name="email" type="email" id="form2" class="text-brown form-control" mdbInput>
+             <label for="form2" class="text-black-50">Your email</label>
+           </div>
+           <div class="md-form">
+             <mdb-icon fas icon="lock" class="text-black-50 active"></mdb-icon>
+             <input [(ngModel)]="loginUserData.password" name="password" type="password" id="form4" class="text-brown form-control" mdbInput>
+             <label for="form4" class="text-black-50">Your password</label>
+           </div>
+           <div>
+    
+       
+           </div>
+           
+           <div class="text-center mt-4">
+             <button (click)="loginUser()" mdbBtn color="brown" mdbWavesEffect>Login</button>
+             <hr class="hr-light mb-3 mt-4">
+             
+           </div>
+         </mdb-card-body>
+       </mdb-card>
+       </div>

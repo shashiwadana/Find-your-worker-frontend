@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import{HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -13,6 +13,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { EventsComponent } from './components/events/events.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
