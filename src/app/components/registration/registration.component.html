@@ -10,33 +10,45 @@
     <!--Body-->
     <div class="md-form">
       <mdb-icon fas icon="user" class="text-black-50 active"></mdb-icon>
-      <input type="text" id="form3" class="text-black form-control" mdbInput>
+      <input [(ngModel)]="registerUserData.name" name="name" type="text" id="form3" class="text-black form-control" mdbInput>
       <label for="form3" class="text-black-50" >Your name</label>
     </div>
     <div class="md-form">
+        <mdb-icon fas icon="phone" class="text-black-50 active"></mdb-icon>
+        <input [(ngModel)]="registerUserData.phone" name="phone" type="tel" id="form5" class="text-brown form-control" mdbInput>
+        <label for="form5" class="text-black-50">Your contact number</label>
+      </div>
+    <div class="md-form">
       <mdb-icon fas icon="envelope" class="text-black-50 active"></mdb-icon>
-      <input type="email" id="form2" class="text-brown form-control" mdbInput>
+      <input [(ngModel)]="registerUserData.email" name="email" type="email" id="form2" class="text-brown form-control" mdbInput>
       <label for="form2" class="text-black-50">Your email</label>
     </div>
     <div class="md-form">
       <mdb-icon fas icon="lock" class="text-black-50 active"></mdb-icon>
-      <input type="password" id="form4" class="text-brown form-control" mdbInput>
+      <input [(ngModel)]="registerUserData.password" name="password" type="password" id="form4" class="text-brown form-control" mdbInput>
       <label for="form4" class="text-black-50">Your password</label>
     </div>
+    <div>
+
+        <div class="form-check form-check-inline">
+            <input  [(ngModel)]="registerUserData.work" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="worker">
+            <label class="form-check-label" for="inlineRadio1">Register as a Worker</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  [(ngModel)]="registerUserData.work" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="client">
+            <label class="form-check-label" for="inlineRadio2">Register as a Client</label>
+          </div>
+
+    </div>
+    
+     
+
+
+
     <div class="text-center mt-4">
-      <button mdbBtn color="brown" mdbWavesEffect>Sign up</button>
+      <button (click)="registerUser()" mdbBtn color="brown" mdbWavesEffect>Sign up</button>
       <hr class="hr-light mb-3 mt-4">
-      <div class="inline-ul text-center d-flex justify-content-center">
-        <a class="p-2 m-2 tw-ic">
-          <mdb-icon fab icon="twitter" class="text-brown"></mdb-icon>
-        </a>
-        <a class="p-2 m-2 li-ic">
-          <mdb-icon fab icon="linkedin-in" class="text-brown"></mdb-icon>
-        </a>
-        <a class="p-2 m-2 ins-ic">
-          <mdb-icon fab icon="instagram" class="text-brown"></mdb-icon>
-        </a>
-      </div>
+      
     </div>
   </mdb-card-body>
 </mdb-card>
