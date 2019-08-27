@@ -1,52 +1,15 @@
-<p>special-events works!</p>
-<div class="col-md-6 col-xl-5 offset-xl-3">
-        <mdb-card class="wow fadeInRight example z-depth-5"  data-wow-delay="0.3s" >
-         <mdb-card-body>
-           <!--Header-->
-           <div class="text-center">
-             <h3 class="black-text">
-               <mdb-icon fas icon="user" class="text-brown"></mdb-icon> Register:</h3>
-             <hr class="hr-light">
-           </div>
-           <!--Body-->
-           <div class="md-form">
-             <mdb-icon fas icon="user" class="text-black-50 active"></mdb-icon>
-             <input [(ngModel)]="registerUserData.name" name="name" type="text" id="form3" class="text-black form-control" mdbInput>
-             <label for="form3" class="text-black-50" >Your name</label>
-           </div>
-           <div class="md-form">
-               <mdb-icon fas icon="phone" class="text-black-50 active"></mdb-icon>
-               <input [(ngModel)]="registerUserData.phone" name="phone" type="tel" id="form5" class="text-brown form-control" mdbInput>
-               <label for="form5" class="text-black-50">Your contact number</label>
-             </div>
-           <div class="md-form">
-             <mdb-icon fas icon="envelope" class="text-black-50 active"></mdb-icon>
-             <input [(ngModel)]="registerUserData.email" name="email" type="email" id="form2" class="text-brown form-control" mdbInput>
-             <label for="form2" class="text-black-50">Your email</label>
-           </div>
-           <div class="md-form">
-             <mdb-icon fas icon="lock" class="text-black-50 active"></mdb-icon>
-             <input [(ngModel)]="registerUserData.password" name="password" type="password" id="form4" class="text-brown form-control" mdbInput>
-             <label for="form4" class="text-black-50">Your password</label>
-           </div>
-           <div>
-       
-               <div class="form-check form-check-inline">
-                   <input  [(ngModel)]="registerUserData.work" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="worker">
-                   <label class="form-check-label" for="inlineRadio1">Register as a Worker</label>
-                 </div>
-                 <div class="form-check form-check-inline">
-                   <input  [(ngModel)]="registerUserData.work" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="client">
-                   <label class="form-check-label" for="inlineRadio2">Register as a Client</label>
-                 </div>
-       
-           </div>
-           
-           <div class="text-center mt-4">
-             <button (click)="registerUser()" mdbBtn color="brown" mdbWavesEffect>Sign up</button>
-             <hr class="hr-light mb-3 mt-4">
-             
-           </div>
-         </mdb-card-body>
-       </mdb-card>
-       </div>
+<div class="row mt-5">
+        <div class="col-md-4 mb-3" *ngFor="let event of SpecialEvents">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{event.name}}</h5>
+                    <p class="card-text">{{event.description}}</p>
+                    <a href="#" class="btn btn-success">Buy Tickets</a>
+    
+                </div>
+                <div class="card-footer text-muted">
+                    {{event.date |date:'shortDate ' }}
+                </div>
+            </div>
+        </div>
+    </div>
