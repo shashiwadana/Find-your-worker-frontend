@@ -7,6 +7,7 @@ import { SpecialEventsComponent } from './components/special-events/special-even
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
+import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 const routes: Routes = [
   
   {
@@ -41,6 +42,12 @@ const routes: Routes = [
     path:'worker-search',
     component:WorkerSearchComponent
   },
+  {
+    path:'worker-profile',
+    component:WorkerProfileComponent
+  },
+
+
 ];
 
 

@@ -14,17 +14,20 @@ import { EventsComponent } from './components/events/events.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
+import { EventService } from './services/event.service';
+import{AuthGuard} from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
-
+import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    EventsComponent,
+    EventsComponent, 
     SpecialEventsComponent,
     NavbarComponent,
-    WorkerSearchComponent
+    WorkerSearchComponent,
+    WorkerProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { WorkerSearchComponent } from './components/worker-search/worker-search.
     HttpClientModule,
     AppRoutingModule 
   ],
-  providers: [AuthService],
+  providers: [AuthService,AuthGuard, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
