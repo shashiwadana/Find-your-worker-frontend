@@ -6,7 +6,7 @@ import{HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -18,6 +18,7 @@ import { EventService } from './services/event.service';
 import{AuthGuard} from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +28,15 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     SpecialEventsComponent,
     NavbarComponent,
     WorkerSearchComponent,
-    WorkerProfileComponent
+    WorkerProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule 
   ],

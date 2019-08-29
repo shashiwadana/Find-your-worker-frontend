@@ -8,11 +8,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
+import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   
   {
     path:'',
-    redirectTo:'events',
+    redirectTo:'home',
     pathMatch:'full'
   },
 
@@ -46,7 +47,10 @@ const routes: Routes = [
     path:'worker-profile',
     component:WorkerProfileComponent
   },
-
+  {
+    path:'home',
+    component:HomeComponent
+  },
 
 ];
 

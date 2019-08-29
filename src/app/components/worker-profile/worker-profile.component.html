@@ -1,43 +1,139 @@
-<!-- News jumbotron -->
-<div class="jumbotron text-center mdb-color brown lighten-1 text-black hoverable p-4">
-
-    <!-- Grid row -->
+<div class="container">
     <div class="row">
-  
-      <!-- Grid column -->
-      <div class="col-md-4 offset-md-1 mx-3 my-3">
-  
-        <!-- Featured image -->
-        <div class="view overlay waves-light" mdbWavesEffect>
-          <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-  
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-md-7 text-md-left ml-3 mt-3">
-  
-        <!-- Excerpt -->
+      <div class="col-md-4"><mdb-card>
+          <!--Card image-->
+          <mdb-card-img src="https://www.pngkit.com/png/detail/349-3499697_man-placeholder-blank-avatar-icon-png.png" alt="Card image cap"></mdb-card-img>
+          <!--Card content-->
+          <mdb-card-body>
         
-  
-        <h4 class="h4 mb-4">Name</h4>
-  
-        <p class="font-weight-normal">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam
-          rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
-        <p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
-  
+            <!--Title-->
+            <mdb-card-title>
+              <h4 style="margin-left: 30%">Name</h4>
+            </mdb-card-title>
         
+            
+            <button class="btn peach-gradient"  style="margin-left: 25%"  >
+            Upload New
+            </button>
+          </mdb-card-body>
+        </mdb-card></div>
+
+
+
+
+      <div class="col-md-8"><mdb-card>
   
+  <mdb-card-body>
+
+    <!-- Default horizontal form -->
+<form>
+    <!-- Grid row -->
+    <div class="form-group row">
+      <!-- Default input -->
+      <label for="inputNamel3" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input mdbInput type="email" class="form-control" id="inputNamel3" placeholder="Name">
       </div>
-      <!-- Grid column -->
-  
     </div>
     <!-- Grid row -->
   
+    <!-- Grid row -->
+    <div class="form-group row">
+      <!-- Default input -->
+      <label for="inputContact3" class="col-sm-2 col-form-label">Contact Number</label>
+      <div class="col-sm-10">
+        <input mdbInput type="password" class="form-control" id="inputContact3" placeholder="Contact Number">
+      </div>
+    </div>
+    <!-- Grid row -->
+
+    <div class="form-group row">
+        <!-- Default input -->
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input mdbInput type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+      <!-- Grid row -->
+    
+      <!-- Grid row -->
+      <div class="form-group row">
+        <!-- Default input -->
+        <label for="inputlocationl3" class="col-sm-2 col-form-label">Base Location</label>
+        <div class="col-sm-10">
+    <select class="browser-default custom-select" >
+      
+      <option *ngFor="let location of locations" [value]="location.id"> {{location.name}}</option>
+     
+    </select></div>
+      </div>
+  
+    <!-- Grid row -->
+    <div class="form-group row">
+      <div class="col-sm-10" style="margin-left:15%">
+        <button type="submit" class="btn peach-gradient">Submit</button>
+        <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+  (click)="frame.show()" mdbWavesEffect>Update</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+          <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-email">Your email</label>
+          <mdb-error
+            *ngIf="loginFormModalEmail.invalid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalEmail.valid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+          <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-pass">Your password</label>
+          <mdb-error
+            *ngIf="loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+      </div>
+    </div>
   </div>
-  <!-- News jumbotron -->
+</div>
+        
+      </div>
+    </div>
+    <!-- Grid row -->
+  </form>
+  <!-- Default horizontal form -->
+
+    
+  </mdb-card-body>
+</mdb-card></div>
+      <div class="w-100"></div>
+      
+    </div>
+  </div>
