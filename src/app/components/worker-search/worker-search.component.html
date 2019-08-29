@@ -4,9 +4,16 @@
 <form class="form-inline waves-light waves-light" mdbWavesEffect>
  
   <div class="md-form my-3 mx-auto">
-      <input class="form-control" type="search" placeholder="I'm searching for  ........" aria-label="Search">
-      <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
-      <br><br>
+     <label>Select the Job type</label> 
+    <select class="browser-default custom-select" style="margin-left:150px;margin-top: 2%">
+      
+      <option *ngFor="let job of jobs" [value]="job.id"> {{job.name}}</option>
+     
+    </select>
+    <br>
+    <br>
+
+
       <div class="btn-group" role="group" aria-label="Basic example">
         <button mdbBtn type="button " gradient="peach" size="lg"  mdbWavesEffect >Book Now</button>
         <button mdbBtn type="button" gradient="peach" size="lg" mdbWavesEffect>Book Later</button>
