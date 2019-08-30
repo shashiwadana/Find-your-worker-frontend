@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Location } from '../../models/base-loaction.model';
+import { Job} from '../../models/worker-search.model';
 @Component({
   selector: 'app-worker-profile',
   templateUrl: './worker-profile.component.html',
@@ -14,10 +15,22 @@ export class WorkerProfileComponent implements OnInit {
     {id:3, name:'Jaffna'}
 
   ];
+
+  jobs:Job[]=[
+    {id : 1,name:'Plumber'},
+    {id:2,name:'Doc'}
+      
+    
+  ]
   ngOnInit() {
+   
     this.validatingForm = new FormGroup({
       loginFormModalEmail: new FormControl('', Validators.email),
-      loginFormModalPassword: new FormControl('', Validators.required)
+      loginFormModalName: new FormControl('', Validators.required),
+      loginFormModalContact: new FormControl('', Validators.required),
+      loginFormModalBLocation: new FormControl('', Validators.required),
+      loginFormModalRate: new FormControl('', Validators.required),
+      loginFormModalDescription: new FormControl('', Validators.required),
     });
   }
 
@@ -25,7 +38,27 @@ export class WorkerProfileComponent implements OnInit {
     return this.validatingForm.get('loginFormModalEmail');
   }
 
-  get loginFormModalPassword() {
-    return this.validatingForm.get('loginFormModalPassword');
+  get loginFormModalName() {
+    return this.validatingForm.get('loginFormModalName');
   }
+  get loginFormModalContact() {
+    return this.validatingForm.get('loginFormModalContact');
+  }
+  get loginFormModalBLocation() {
+    return this.validatingForm.get('loginFormModalBLocation');
+  }
+  get loginFormModalRate() {
+    return this.validatingForm.get('loginFormModalRate');
+  }
+  get loginFormModalDescription() {
+    return this.validatingForm.get('loginFormModalDescription');
+  }
+
+
+
+
+
+
+
+
 }

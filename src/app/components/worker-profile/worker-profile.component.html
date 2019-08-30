@@ -12,7 +12,7 @@
             </mdb-card-title>
         
             
-            <button class="btn peach-gradient"  style="margin-left: 25%"  >
+            <button   mdbBtn type="button" color="default"   style="margin-left: 25%" mdbWavesEffec >
             Upload New
             </button>
           </mdb-card-body>
@@ -67,13 +67,50 @@
      
     </select></div>
       </div>
+
+
+<!--status-->
+<div class="form-group row">
+  <!-- Default input -->
+  <label for="inputskills4" class="col-sm-2 col-form-label">Skills</label>
+  <div class="col-sm-10">
+    <div *ngFor="let job of jobs">
+
+      <h6>
+          {{ job.name }}
+      </h6>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+      <!-- Grid row -->
+    <div class="form-group row">
+      <!-- Default input -->
+      <label for="inputNamel3" class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <input mdbInput type="email" class="form-control" id="inputNamel3" placeholder="Name">
+      </div>
+    </div>
+    <!-- Grid row -->
+
+
+
+
   
     <!-- Grid row -->
     <div class="form-group row">
       <div class="col-sm-10" style="margin-left:15%">
-        <button type="submit" class="btn peach-gradient">Submit</button>
+        <!--<button mdbBtn type="button" color="default" mdbWavesEffect>Submit</button>-->
         <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-  (click)="frame.show()" mdbWavesEffect>Update</button>
+  (click)="frame.show()" style="margin-left: 25%" mdbWavesEffect>Update</button>
 
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,38 +124,95 @@
       </div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
-          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
-          <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control"
+          <mdb-icon  fas icon="user-alt" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="defaultForm-name" [formControl]="loginFormModalName" class="form-control"
                  mdbInput mdbValidate>
-          <label for="defaultForm-email">Your email</label>
+          <label for="defaultForm-name">Your Name</label>
           <mdb-error
-            *ngIf="loginFormModalEmail.invalid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
+            *ngIf="loginFormModalName.invalid && (loginFormModalName.dirty || loginFormModalName.touched)">
             Input invalid
           </mdb-error>
           <mdb-success
-            *ngIf="loginFormModalEmail.valid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">Input
+            *ngIf="loginFormModalName.valid && (loginFormModalName.dirty || loginFormModalName.touched)">Input
             valid
           </mdb-success>
         </div>
 
         <div class="md-form mb-4">
-          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
-          <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control"
+          <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="defaultForm-contact" [formControl]="loginFormModalContact" class="form-control"
                  mdbInput mdbValidate>
-          <label for="defaultForm-pass">Your password</label>
+          <label for="defaultForm-contact">Your Contact</label>
           <mdb-error
-            *ngIf="loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+            *ngIf="loginFormModalContact.invalid && (loginFormModalContact.dirty || loginFormModalContact.touched)">
             Input invalid
           </mdb-error>
           <mdb-success
-            *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+            *ngIf="loginFormModalContact.valid && (loginFormModalContact.dirty || loginFormModalContact.touched)">
             Input valid
           </mdb-success>
         </div>
 
+        
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+          <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-email">Your Email</label>
+          <mdb-error
+            *ngIf="loginFormModalEmail.invalid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalEmail.valid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+        
+        
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="map-marker-alt" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="defaultForm-blocation" [formControl]="loginFormModalBLocation" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-blocation">Your BaseLocation</label>
+          <mdb-error
+            *ngIf="loginFormModalBLocation.invalid && (loginFormModalBLocation.dirty || loginFormModalBLocation.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalBLocation.valid && (loginFormModalBLocation.dirty || loginFormModalBLocation.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+        <!--radio-->
+      <div>
+
+        <div class="form-check form-check-inline">
+            <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="worker">
+            <label class="form-check-label" for="inlineRadio1">Online</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="client">
+            <label class="form-check-label" for="inlineRadio2">Other</label>
+          </div>
+
+    </div>
+
+
+
+
+
+
+        
+
+
+
+
+
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Submit</button>
       </div>
     </div>
   </div>
@@ -130,10 +224,117 @@
   </form>
   <!-- Default horizontal form -->
 
-    
+
+
+
+
+
+
+
+
+    <!--Skills Adding -->
   </mdb-card-body>
 </mdb-card></div>
       <div class="w-100"></div>
+      <div class="col col-example"></div>
+    <div class="col col-example">
+
+<br><br>
+      <mdb-card style="margin-left: 0% ; background-color: aqua-gradient">
+        
+        <mdb-card-body>
       
+          <!--Title-->
+          <mdb-card-title>
+            <h4 style="margin-left: 30%">Skills</h4>
+          </mdb-card-title>
+      
+          <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample2"
+  (click)="frame1.show()" mdbWavesEffect>Add New Skill</button>
+
+<div mdbModal #frame1="mdbModal" class="modal fade left" id="frameModalTop1" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body mx-3">
+
+      <div class="form-group row mx-3" style="margin-top: 10%">
+        <!-- Default input -->
+        <label for="inputjob1" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-8">
+    <select class="browser-default custom-select" >
+      
+      <option *ngFor="let skill of jobs" [value]="skill.id"> {{skill.name}}</option>
+     
+    </select></div>
+      </div>
+
+      
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="dollar-sign" class="prefix grey-text"></mdb-icon>
+          <input type="number" id="defaultForm-rate" [formControl]="loginFormModalRate" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-rate">Hourly Rate</label>
+          <mdb-error
+            *ngIf="loginFormModalRate.invalid && (loginFormModalRate.dirty || loginFormModalRate.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalRate.valid && (loginFormModalRate.dirty || loginFormModalRate.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="comment" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="defaultForm-description" [formControl]="loginFormModalDescription" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-pass">Your Description</label>
+          <mdb-error
+            *ngIf="loginFormModalDescription.invalid && (loginFormModalDescription.dirty || loginFormModalDescription.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="loginFormModalDescription.valid && (loginFormModalDescription.dirty || loginFormModalDescription.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </mdb-card-body>
+      </mdb-card>
+
+
+
+
+      
+    </div>
     </div>
   </div>
