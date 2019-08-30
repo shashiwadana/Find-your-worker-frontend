@@ -13,7 +13,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { EventsComponent } from './components/events/events.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-//import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth.service';
 import { EventService } from './services/event.service';
 //import{AuthGuard} from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
@@ -40,7 +40,8 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     AppRoutingModule 
   ],
-  //providers: [AuthService,AuthGuard, EventService],
+ // providers: [AuthService,AuthGuard, EventService],
+  providers: [AuthService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
