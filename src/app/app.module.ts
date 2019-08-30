@@ -15,7 +15,7 @@ import { SpecialEventsComponent } from './components/special-events/special-even
 import { NavbarComponent } from './components/navbar/navbar.component';
 //import { AuthService } from './services/auth.service';
 import { EventService } from './services/event.service';
-import{AuthGuard} from './auth.guard';
+//import{AuthGuard} from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import { HomeComponent } from './components/home/home.component';

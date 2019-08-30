@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SpecialEventsComponent } from './components/special-events/special-events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AuthGuard } from './auth.guard';
+//import { AuthGuard } from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import { HomeComponent } from './components/home/home.component';
@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path:'special-events',
     component:SpecialEventsComponent,
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path:'navbar',
