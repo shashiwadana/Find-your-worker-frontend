@@ -12,7 +12,9 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   registerUser(){
+    console.log(this.registerUserData);
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res=>console.log(res),
