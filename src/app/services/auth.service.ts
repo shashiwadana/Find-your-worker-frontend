@@ -1,13 +1,13 @@
 
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import { Observable } from '../../../node_modules/rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private _registerUrl="http://localhost:3000/user/register";
-  private _loginUrl="http://localhost:3000/api/login";
+  //private _registerUrl="http://localhost:3000/user/register";
+  
   
   
   
@@ -15,17 +15,14 @@ export class AuthService {
   
   
   constructor(private http:HttpClient) { }
+  registerUser(username, password, mobile, type): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/user/register', {
+      UserEmail: username,
+      Password: password,
+      ContactNumber: mobile,
+      UserType : type
+    });
+  
 
-  registerUser(user){
-    return this.http.post<any>(this._registerUrl,user,)
-  }
-
-  loginUser(user){
-    return this.http.post<any>(this._loginUrl,user) 
-  }
-
-  loggedIn(){ 
-    return !!localStorage.getItem('token') 
-  }
-
+}
 }
