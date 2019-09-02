@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{AuthService} from '../../services/auth.service'
+import{AuthService} from '../../services/auth.service';
+import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -7,6 +9,8 @@ import{AuthService} from '../../services/auth.service'
 })
 export class RegistrationComponent implements OnInit {
   registerUserData={}
+
+  
   constructor(private _auth:AuthService) { }
   //constructor() { }
 
@@ -14,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   }
   
   registerUser(){
-    console.log(this.registerUserData);
+   //  console.log(this.registerUserData);
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res=>console.log(res),

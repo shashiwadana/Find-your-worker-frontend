@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import { HomeComponent } from './components/home/home.component';
+import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
+import { MapViewComponent } from './components/map-view/map-view.component';
+import { BookLaterComponent } from './components/book-later/book-later.component';
 const routes: Routes = [
   
   {
@@ -51,6 +54,24 @@ const routes: Routes = [
     path:'home',
     component:HomeComponent
   },
+
+  {
+    path:'worker-dashboard',
+    component:WorkerDashboardComponent
+  },
+
+  {
+    path:'map-view',
+    component:MapViewComponent
+  },
+
+  {
+    path:'book-later',
+    component:BookLaterComponent
+  }
+
+
+
 
 ];
 

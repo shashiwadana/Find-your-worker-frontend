@@ -19,6 +19,9 @@ import { EventService } from './services/event.service';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import { HomeComponent } from './components/home/home.component';
+import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
+import { MapViewComponent } from './components/map-view/map-view.component';
+import { BookLaterComponent } from './components/book-later/book-later.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,10 @@ import { HomeComponent } from './components/home/home.component';
     NavbarComponent,
     WorkerSearchComponent,
     WorkerProfileComponent,
-    HomeComponent
+    HomeComponent,
+    WorkerDashboardComponent,
+    MapViewComponent,
+    BookLaterComponent,
   ],
   imports: [
     BrowserModule,
