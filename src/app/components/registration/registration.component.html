@@ -30,14 +30,16 @@
     </div>
     <div>
 
-        <div class="form-check form-check-inline">
-            <input  type="radio" class="custom-control-input"  mdbInput formControlName="userType" value="1" id="workerradio">
-            <label class="form-check-label" for="inlineRadio1">Register as a Worker</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input  type="radio" class="custom-control-input" mdbInput formControlName="userType" value="0" id="clientradio">
-            <label class="form-check-label" for="inlineRadio2">Register as a Client</label>
-          </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input"  mdbInput formControlName="userType" value="1" id="workerradio">
+            <label class="custom-control-label" for="workerradio">Register as a Worker</label>
+        </div>
+        <div class="col-md-6">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" mdbInput formControlName="userType" value="0" id="clientradio">
+                <label class="custom-control-label" for="clientradio">Register as a Client</label>
+            </div>
+        </div>
 
     </div>
     
