@@ -3,10 +3,11 @@
  <!---->
  <div class="container">
     <div class="row">
-
+ 
         <div class="input-group my-3 mx-auto">
             <!--job-->
-            <div class="input group">
+            
+            <div class="input group" style="margin-left: 40%">
                 <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Select a worker"
                 list="jobs" [(ngModel)]="jobType" (change)="setjobIdPassToBooking()">
 
@@ -15,19 +16,19 @@
                 <datalist id='jobs'> 
                   <option *ngFor="let job of jobs"> {{job.SkillTitle}}</option>
                 </datalist>  
-
+                <!---
                 <div class="input-group-append">
                     <button class="btn btn-brown btn-md m-0 px-3 py-2 z-depth-0 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Choose a Worker</button>
                 </div>
-
-            </div></div></div>
+              -->
+            </div></div></div></div>
             
            <br>
            <br>
        
             <!-- Date and Time -->
-            <div class="contatiner">
+            <div class="jumbortan">
                 <div class="row">
 
                     <div class="col-sm-4">
@@ -79,7 +80,7 @@
              
          </div>
       
-    </div>
+    
   
 
  

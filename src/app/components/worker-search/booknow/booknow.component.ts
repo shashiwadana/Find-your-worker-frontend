@@ -26,7 +26,7 @@ export class BooknowComponent implements OnInit {
       })
     }
     else{
-      //this.router.navigate(['client/map', {location: this.baseLocation, jobType: this.jobTypeId }]);
+      this.router.navigate(['map-view', {location: this.baseLocation, jobType: this.jobTypeId }]);
       console.log("Going to map");
     }
   }

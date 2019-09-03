@@ -25,6 +25,7 @@ import { WorkerDashboardComponent } from './components/worker-dashboard/worker-d
 import { MapViewComponent } from './components/map-view/map-view.component';
 import { BooknowComponent } from './components/worker-search/booknow/booknow.component';
 import { BooklaterComponent } from './components/worker-search/booklater/booklater.component';
+import { LaterComponent } from './components/later/later.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { BooklaterComponent } from './components/worker-search/booklater/booklat
     MapViewComponent,
     BooknowComponent,
     BooklaterComponent,
+    LaterComponent,
     
     
   ],

@@ -28,7 +28,7 @@ export class BooklaterComponent implements OnInit {
       });
     }
     else{
-      //this.router.navigate(['client/workers', {baseLocation: this.baseLocation, jobType: this.jobTypeId, date: this.date, startTime: this.startTime, endTime: this.endTime}]);
+      this.router.navigate(['later', {baseLocation: this.baseLocation, jobType: this.jobTypeId, date: this.date, startTime: this.startTime, endTime: this.endTime}]);
     }
     
   }

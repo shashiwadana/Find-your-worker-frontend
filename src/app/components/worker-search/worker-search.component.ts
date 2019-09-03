@@ -28,7 +28,7 @@ export class WorkerSearchComponent implements OnInit {
       date:string;
       startTime:string;
       endTime:string;
-      baseLocation="colombo";
+      baseLocation="moratuwa";
 
 
   ngOnInit() {
