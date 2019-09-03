@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('sessionEmail', result.result.sessionEmail);
           localStorage.setItem('sessionType', result.result.sessionType);
           if (result.result.sessionType === 'worker') {
-            this.router.navigate(['worker']);
+            this.router.navigate(['worker-dashboard']);
           } else {
-            this.router.navigate(['']);
+            this.router.navigate(['worker-search']);
           }
         } else {
           this.form.reset();
