@@ -15,6 +15,8 @@ import { SpecialEventsComponent } from './components/special-events/special-even
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { EventService } from './services/event.service';
+
+import{ToastrModule} from 'ngx-toastr';
 //import{AuthGuard} from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
@@ -44,7 +46,12 @@ import { BookLaterComponent } from './components/book-later/book-later.component
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule 
+    AppRoutingModule ,
+    ToastrModule.forRoot({
+      timeOut:500,
+      positionClass:'toast-top-right',
+      preventDuplicates:false, 
+    }),
   ],
  // providers: [AuthService,AuthGuard, EventService],
   providers: [AuthService, EventService],
