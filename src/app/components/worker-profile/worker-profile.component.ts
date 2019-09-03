@@ -16,12 +16,7 @@ export class WorkerProfileComponent implements OnInit {
 
   ];
 
-  jobs:Job[]=[
-    {id : 1,name:'Plumber'},
-    {id:2,name:'Doc'}
-      
-    
-  ]
+  
   ngOnInit() {
    
     this.validatingForm = new FormGroup({
