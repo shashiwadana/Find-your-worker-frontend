@@ -11,7 +11,7 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
 import { HomeComponent } from './components/home/home.component';
 import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
-import { BookLaterComponent } from './components/book-later/book-later.component';
+
 const routes: Routes = [
   
   {
@@ -65,11 +65,7 @@ const routes: Routes = [
     component:MapViewComponent
   },
 
-  {
-    path:'book-later',
-    component:BookLaterComponent
-  }
-
+ 
 
 
 

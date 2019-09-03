@@ -23,7 +23,10 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
 import { HomeComponent } from './components/home/home.component';
 import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
-import { BookLaterComponent } from './components/book-later/book-later.component';
+import { BooknowComponent } from './components/worker-search/booknow/booknow.component';
+import { BooklaterComponent } from './components/worker-search/booklater/booklater.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,10 @@ import { BookLaterComponent } from './components/book-later/book-later.component
     HomeComponent,
     WorkerDashboardComponent,
     MapViewComponent,
-    BookLaterComponent,
+    BooknowComponent,
+    BooklaterComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

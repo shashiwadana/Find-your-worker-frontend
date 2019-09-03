@@ -1,25 +1,85 @@
 
 
  <!---->
-<form class="form-inline waves-light waves-light" mdbWavesEffect>
- 
-  <div class="md-form my-3 mx-auto">
-     <label style="margin-left:20px">Select the Job type</label> 
-    <select class="browser-default custom-select" style="margin-left:160px;margin-top: 2%">
+ <div class="container">
+    <div class="row">
+
+        <div class="input-group my-3 mx-auto">
+            <!--job-->
+            <div class="input group">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Select a worker"
+                list="jobs" [(ngModel)]="jobType" (change)="setjobIdPassToBooking()">
+
+                 
+                
+                <datalist id='jobs'> 
+                  <option *ngFor="let job of jobs"> {{job.SkillTitle}}</option>
+                </datalist>  
+
+                <div class="input-group-append">
+                    <button class="btn btn-brown btn-md m-0 px-3 py-2 z-depth-0 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Choose a Worker</button>
+                </div>
+
+            </div></div></div>
+            
+           <br>
+           <br>
+       
+            <!-- Date and Time -->
+            <div class="contatiner">
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+
+                            <input type="date" id="input" class="form-control" mdbInput placeholder="Select a date" [(ngModel)]="date">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="col-sm-2">
+                        <label for="">
+                            <strong> Start Time: </strong>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input type="time" id="input" class="form-control" mdbInput value="13:00:00" placeholder="Select a Start Time" [(ngModel)]="startTime">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="col-sm-2">
+                        <label for="">
+                            <strong> End Time: </strong>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input type="time" id="input" class="form-control" mdbInput value="13:00:00" placeholder="Select an End Time" [(ngModel)]="endTime">
+                        </div>
+                    </div>
+                </div>
+
+
+                <br><br>
+                <div style="margin-left: 35%">
+                  
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-4">
+                              <app-booknow [jobTypeId]='jobIdPassToBooking' [baseLocation]='baseLocation'></app-booknow>
+                              <app-booklater [jobTypeId]='jobIdPassToBooking' [baseLocation]='baseLocation' [date]='date' [startTime]='startTime' [endTime]='endTime'></app-booklater>
+                          </div>
+                      </div>
+                           
+                  </div>
+                  
+              
+             </div>
+             
+         </div>
       
-      <option *ngFor="let job of jobs" [value]="job.SkillId"> {{job.SkillTitle}}</option>
-     
-    </select>
-    <br>
-    <br>
-
-
-      <div class="btn-group" role="group" aria-label="Basic example" style="margin-right:10%">
-        <button mdbBtn type="button " gradient="peach" size="lg"  mdbWavesEffect >Book Now</button>
-        <button mdbBtn type="button" gradient="peach" size="lg" mdbWavesEffect>Book Later</button>
-        
     </div>
-      
-      
-  </div>
-  </form>
+  
+
+ 

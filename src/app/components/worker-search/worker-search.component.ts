@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import { Job } from '../../models/worker-search.model';
 import { JobService } from '../../services/job.service';
@@ -9,16 +9,39 @@ import { JobService } from '../../services/job.service';
   styleUrls: ['./worker-search.component.scss']
 })
 export class WorkerSearchComponent implements OnInit {
-  public jobs=[];
-  constructor(private _job:JobService) { }
+  
+  
+  constructor(private _job:JobService) 
+              { 
+                this._job.getJobs().subscribe(
+                  res=>{ console.log(res.recordset);
+                    this.jobs=res.recordset;
+            
+                  }
+                 );
+    
+              }
+
+      jobs:Job[];
+      jobType:string;
+      jobIdPassToBooking:number;
+      date:string;
+      startTime:string;
+      endTime:string;
+      baseLocation="colombo";
+
 
   ngOnInit() {
-    this._job.getJobs().subscribe(
-      res=>{ console.log(res.recordset);
-        this.jobs=res.recordset;
+    
+  }
 
+  setjobIdPassToBooking() {
+    for(const skill of this.jobs){
+      if(skill.SkillTitle === this.jobType){
+        this.jobIdPassToBooking = skill.SkillId;
       }
-     );
+    }
+    console.log(this.jobIdPassToBooking);
   }
 
 }
