@@ -10,4 +10,12 @@ export class CompletedServicesService {
   get_completedOrders(user){
     return this.httpClient.get('http://localhost:3000/completedorders/owner/completedorders/' + localStorage.getItem('UserId'));
   }
+
+  get_cancelledOrders(user){
+    return this.httpClient.get('http://localhost:3000/completedorders/owner/cancelledjobs/' + localStorage.getItem('UserId'));
+  }
+
+  get_acceptedOrders(user){
+    return this.httpClient.get('http://localhost:3000/completedorders/owner/upcomingjobs/' + localStorage.getItem('UserId'));
+  }
 }

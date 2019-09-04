@@ -6,46 +6,68 @@
               
                   <!--Title-->
                   <mdb-card-title>
-                    <h4>Ongoing Orders</h4>
+                    <h4>Accepted Orders</h4>
                   </mdb-card-title>
                   <!--button with data-->
-                  <button mdbBtn color="primary" class="waves-light" type="button" (click)="todayjobs.toggle()" mdbWavesEffect>
+                  <li *ngFor="let acptOrder of acceptedOrders">
+                  <button mdbBtn color="primary" class="waves-light" type="button" (click)="ongjobs.toggle()" mdbWavesEffect>
                     Toggle collapse
                   </button>
                   
-                  <div class="" mdbCollapse #todayjobs="bs-collapse">
-                    <table class="table table-dark">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="" mdbCollapse #ongjobs="bs-collapse">
+                        <table class="table table-dark">
+                                <tr>
+                                    <th >Date</th>
+                                    <td >{{acptOrder.OrderDate|date}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Woker First Name</th>
+                                    <td >{{acptOrder.FirstName}}</td>
+                                    
+                                  </tr>
+                                
+                                  <tr>
+                                    <th >Woker Last Name</th>
+                                    <td>{{acptOrder.LastName}}</td>
+                                   
+                                  </tr>
+                                  <tr>
+                                    <th >Location</th>
+                                    <td>{{acptOrder.BaseLocation}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Ratings</th>
+                                    <td>{{acptOrder.Rate}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Reviews</th>
+                                    <td>{{acptOrder.Review}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                        <th >Expected Start Time</th>
+                                        <td>{{acptOrder.StartTime}}</td>
+                                        
+                                      </tr>
+
+                                      <tr>
+                                            <th >Expected End Time</th>
+                                            <td>{{acptOrder.EndTime}}</td>
+                                            
+                                          </tr>
+                                  <tr>
+                                        <th >Price</th>
+                                        <td>{{acptOrder.FinalPrice|currency}}</td>
+                                        
+                                      </tr>
+                                     
+                              </table>
                   </div>
                   <!-- end button with data-->
+                  </li>
                 </mdb-card-body>
               </mdb-card>
         </div>
@@ -58,45 +80,56 @@
             
                 <!--Title-->
                 <mdb-card-title>
-                  <h4>Pending Orders</h4>
+                  <h4>Cancelled Orders</h4>
                 </mdb-card-title>
+                <li *ngFor="let cancelledOrder of cancelledOrders">
                 <button mdbBtn color="primary" class="waves-light" type="button" (click)="upcoming.toggle()" mdbWavesEffect>
                   Toggle collapse
                 </button>
                 
                 <div class="" mdbCollapse #upcoming="bs-collapse">
-                  <table class="table table-dark">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        <table class="table table-dark">
+                                <tr>
+                                    <th >Date</th>
+                                    <td >{{cancelledOrder.OrderDate|date}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Woker First Name</th>
+                                    <td >{{cancelledOrder.FirstName}}</td>
+                                    
+                                  </tr>
+                                
+                                  <tr>
+                                    <th >Woker Last Name</th>
+                                    <td>{{cancelledOrder.LastName}}</td>
+                                   
+                                  </tr>
+                                  <tr>
+                                    <th >Location</th>
+                                    <td>{{cancelledOrder.BaseLocation}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Ratings</th>
+                                    <td>{{cancelledOrder.Rate}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <th >Reviews</th>
+                                    <td>{{cancelledOrder.Review}}</td>
+                                    
+                                  </tr>
+                                  <tr>
+                                        <th >Price</th>
+                                        <td>{{cancelledOrder.FinalPrice|currency}}</td>
+                                        
+                                      </tr>
+                                
+                              </table>
+                 
                 </div>
-                
+                </li>
               </mdb-card-body>
             </mdb-card>
       </div>
@@ -152,6 +185,11 @@
                         <td>{{compOrder.Review}}</td>
                         
                       </tr>
+                      <tr>
+                            <th >Price</th>
+                            <td>{{compOrder.FinalPrice|currency}}</td>
+                            
+                          </tr>
                     
                   </table>
                 </div>
