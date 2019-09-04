@@ -27,7 +27,7 @@ import { BooknowComponent } from './components/worker-search/booknow/booknow.com
 import { BooklaterComponent } from './components/worker-search/booklater/booklater.component';
 import { LaterComponent } from './components/later/later.component';
 import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
-
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -63,7 +63,13 @@ import { ClientOrdersComponent } from './components/client-orders/client-orders.
       timeOut:500,
       positionClass:'toast-top-right',
       preventDuplicates:false, 
+      
     }),
+    AgmCoreModule.forRoot({
+      //apiKey: 'AIzaSyB8lgLyWZZBgmCV6EAVADrIanxU03jXfWc'
+     }),
+
+
   ],
  // providers: [AuthService,AuthGuard, EventService],
   providers: [AuthService],
