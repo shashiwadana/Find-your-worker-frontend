@@ -10,10 +10,10 @@ import { CompletedOrder,CompletedOrderResponse} from '../../models/completedOrde
 export class ClientOrdersComponent implements OnInit {
   
    clientOrders: CompletedOrder[];
-   clientId:number=1;
+
   constructor(private comp:CompletedServicesService) {
   
-    this.comp.get_completedOrders(this.clientId).subscribe((res:CompletedOrderResponse)=>{
+    this.comp.get_completedOrders( localStorage.getItem('UserId')).subscribe((res:CompletedOrderResponse)=>{
       
       this.clientOrders = res.result[0];
       console.log(this.clientOrders[2]);

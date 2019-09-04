@@ -6,8 +6,8 @@ import{HttpClient} from '@angular/common/http';
 export class CompletedServicesService {
 
   constructor(private httpClient:HttpClient) { }
-
-  get_completedOrders(clientId){
-    return this.httpClient.get('http://localhost:3000/completedorders/owner/completedorders/' +clientId);
+  user:string=localStorage.getItem('UserId');
+  get_completedOrders(user){
+    return this.httpClient.get('http://localhost:3000/completedorders/owner/completedorders/' + localStorage.getItem('UserId'));
   }
 }

@@ -3,6 +3,7 @@ export interface LoginResponse {
     result: {
         sessionType: string;
         sessionEmail: string;
+        UserId:string;
     };
     message: string;
 }
