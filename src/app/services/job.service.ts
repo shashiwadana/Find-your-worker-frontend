@@ -13,3 +13,5 @@ export class JobService {
     return this.http.get<JobModelRes>('http://localhost:3000/dataservices/getallskills');
   }
 }
+
+//.................service to get skills of workers.....
