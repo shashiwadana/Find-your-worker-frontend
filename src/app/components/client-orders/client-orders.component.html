@@ -11,7 +11,7 @@
                   <!--button with data-->
                   <li *ngFor="let acptOrder of acceptedOrders">
                   <button mdbBtn color="primary" class="waves-light" type="button" (click)="ongjobs.toggle()" mdbWavesEffect>
-                    Toggle collapse
+                    Accepted
                   </button>
                   
                   <div class="" mdbCollapse #ongjobs="bs-collapse">
@@ -84,7 +84,7 @@
                 </mdb-card-title>
                 <li *ngFor="let cancelledOrder of cancelledOrders">
                 <button mdbBtn color="primary" class="waves-light" type="button" (click)="upcoming.toggle()" mdbWavesEffect>
-                  Toggle collapse
+                  Cancelled
                 </button>
                 
                 <div class="" mdbCollapse #upcoming="bs-collapse">
@@ -149,7 +149,7 @@
 
                 <li *ngFor="let compOrder of clientOrders">
                 <button mdbBtn color="primary" class="waves-light" type="button" (click)="acceptedjobs.toggle()" mdbWavesEffect>
-                  Toggle collapse
+                  Completed 
                 </button>
                 
                 <div class="" mdbCollapse #acceptedjobs="bs-collapse">
