@@ -1,9 +1,9 @@
-<div class="container">
+<div class="jumbortan">
         <agm-map [latitude]=7.654521 [longitude]=80.254587 class="map">
     
             <agm-marker *ngFor="let worker of workersRealTime" [latitude]="worker.Latitude" [longitude]="worker.Longitude" [iconUrl]="url">
                 <agm-info-window [disableAutoPan]=f alse [isOpen]=f alse>
-                    <!-- Card -->
+                    <!-- Card --> 
                     <div class="card">
                         <p></p>
                         <div class="container">
@@ -39,7 +39,7 @@
                         </div>
     
                     </div>
-                    <!-- Card -->
+                    <!-- Card --> 
     
                 </agm-info-window>
             </agm-marker>

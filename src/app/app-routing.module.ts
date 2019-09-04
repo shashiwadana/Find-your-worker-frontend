@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
 import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
+import { LaterComponent } from './components/later/later.component';
 
 const routes: Routes = [
   
@@ -65,7 +66,11 @@ const routes: Routes = [
     component:ClientOrdersComponent
   },
  
-
+  {
+    path:'late',
+    component:LaterComponent
+  },
+ 
 
 
 ];
