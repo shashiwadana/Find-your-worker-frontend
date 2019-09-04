@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container">
         <agm-map [latitude]=7.654521 [longitude]=80.254587 class="map">
     
             <agm-marker *ngFor="let worker of workersRealTime" [latitude]="worker.Latitude" [longitude]="worker.Longitude" [iconUrl]="url">
