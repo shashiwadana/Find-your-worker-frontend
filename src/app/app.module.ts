@@ -10,11 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { EventsComponent } from './components/events/events.component';
-import { SpecialEventsComponent } from './components/special-events/special-events.component';
+;
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
-import { EventService } from './services/event.service';
+
 
 import{ToastrModule} from 'ngx-toastr';
 //import{AuthGuard} from './auth.guard';
@@ -26,6 +26,8 @@ import { MapViewComponent } from './components/map-view/map-view.component';
 import { BooknowComponent } from './components/worker-search/booknow/booknow.component';
 import { BooklaterComponent } from './components/worker-search/booklater/booklater.component';
 import { LaterComponent } from './components/later/later.component';
+import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
+
 
 
 @NgModule({
@@ -33,8 +35,8 @@ import { LaterComponent } from './components/later/later.component';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    EventsComponent, 
-    SpecialEventsComponent,
+    
+    
     NavbarComponent,
     WorkerSearchComponent,
     WorkerProfileComponent,
@@ -44,6 +46,8 @@ import { LaterComponent } from './components/later/later.component';
     BooknowComponent,
     BooklaterComponent,
     LaterComponent,
+    ClientOrdersComponent,
+    
     
     
   ],
@@ -62,7 +66,7 @@ import { LaterComponent } from './components/later/later.component';
     }),
   ],
  // providers: [AuthService,AuthGuard, EventService],
-  providers: [AuthService, EventService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

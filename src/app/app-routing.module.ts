@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventsComponent } from './components/events/events.component';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { SpecialEventsComponent } from './components/special-events/special-events.component';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 //import { AuthGuard } from './auth.guard';
 import { WorkerSearchComponent } from './components/worker-search/worker-search.component';
@@ -11,6 +11,7 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
 import { HomeComponent } from './components/home/home.component';
 import { WorkerDashboardComponent } from './components/worker-dashboard/worker-dashboard.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
+import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
 
 const routes: Routes = [
   
@@ -20,10 +21,7 @@ const routes: Routes = [
     pathMatch:'full'
   },
 
-  {
-    path:'events',
-    component:EventsComponent
-  },
+ 
 
   {
     path:'login',
@@ -31,13 +29,10 @@ const routes: Routes = [
   },
   {
     path:'registration',
-    component:RegistrationComponent
-  },
-  {
-    path:'special-events',
-    component:SpecialEventsComponent,
+    component:RegistrationComponent,
     //canActivate:[AuthGuard]
   },
+  
   {
     path:'navbar',
     component:NavbarComponent
@@ -65,6 +60,10 @@ const routes: Routes = [
     component:MapViewComponent
   },
 
+  {
+    path:'client-orders',
+    component:ClientOrdersComponent
+  },
  
 
 
