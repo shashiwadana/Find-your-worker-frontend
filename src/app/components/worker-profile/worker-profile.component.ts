@@ -19,7 +19,7 @@ export class WorkerProfileComponent implements OnInit {
 
   
  
-  //isWorker;
+  isWorker;
   //isEditing: boolean = false;
   form:FormGroup;
   workerData:WorkerProfileModel;
