@@ -27,32 +27,40 @@
   <mdb-card-body >
 
     <!-- Default horizontal form -->
-<form>
+<form [formGroup]="form">
     <!-- Grid row -->
     <div class="form-group row">
       <!-- Default input -->
-      <label for="inputNamel3" class="col-sm-2 col-form-label">Name</label>
+      <label for="inputNamel3" class="col-sm-2 col-form-label">First Name</label>
       <div class="col-sm-10">
-        <input mdbInput type="email" class="form-control" id="inputNamel3" placeholder="Name">
+        <input mdbInput type="text" class="form-control"  id="clientFName" formControlName="firstName" value={{FirstName}} placeholder="First Name" [(ngModel)]="FirstName">
       </div>
     </div>
     <!-- Grid row -->
-  
+  <!-- Grid row -->
+  <div class="form-group row">
+      <!-- Default input -->
+      <label for="inputNamel4" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input mdbInput type="text" class="form-control"id="clientLName" formControlName="lastName" value={{LastName}}  placeholder="Name"  [(ngModel)]="LastName">
+      </div>
+    </div>
+    <!-- Grid row -->
     <!-- Grid row -->
     <div class="form-group row">
       <!-- Default input -->
-      <label for="inputContact3" class="col-sm-2 col-form-label">Contact Number</label>
+      <label for="inputemail3" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input mdbInput type="password" class="form-control" id="inputContact3" placeholder="Contact Number">
+        <input mdbInput type="email" class="form-control" id="clientEmail" formControlName="email" value={{Email}}  placeholder="Contact Number" [(ngModel)]="Email">
       </div>
     </div>
     <!-- Grid row -->
 
     <div class="form-group row">
         <!-- Default input -->
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <label for="inputcon3" class="col-sm-2 col-form-label">Contact Number</label>
         <div class="col-sm-10">
-          <input mdbInput type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          <input mdbInput type="text" id="clientContactNo" formControlName="contactNo" class="form-control" value={{ContactNumber}} placeholder="Email"  [(ngModel)]="ContactNumber">
         </div>
       </div>
       <!-- Grid row -->
@@ -62,11 +70,8 @@
         <!-- Default input -->
         <label for="inputlocationl3" class="col-sm-2 col-form-label">Base Location</label>
         <div class="col-sm-10">
-    <select class="browser-default custom-select" >
-      
-      <option *ngFor="let location of locations" [value]="location.id"> {{location.name}}</option>
-     
-    </select></div>
+            <input mdbInput type="text" id="clientLocation" formControlName="location" class="form-control"  placeholder="Location"  [(ngModel)]="BaseLocation">
+        </div>
       </div>
 
 
@@ -86,7 +91,16 @@
 </div>
 
 
-
+<div class="form-group row">
+    <!-- Default input -->
+    <label for="inputlocationl3" class="col-sm-2 col-form-label">Base Location</label>
+    <div class="col-sm-10">
+<select class="browser-default custom-select" >
+  
+  <option *ngFor="let location of locations" [value]="location.id"> {{location.name}}</option>
+ 
+</select></div>
+  </div>
 
 
 
