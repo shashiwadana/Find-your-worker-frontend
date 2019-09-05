@@ -28,11 +28,11 @@ logout() {
 }
 
 isLogged() {
-  if (localStorage.getItem('sessionEmail') === null) {
-    return false;
+   
+    return  localStorage.getItem('sessionEmail');
   }
-  return true;
-}
+ 
+
 
 getUserType() {
   return localStorage.getItem('sessionType');
