@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
 
    }
 
-   loginSubmit() {
+   loginSubmit(form) {
     this._login.loginUser(this.username.value, this.password.value).subscribe(
       result => {
+        console.log(result);
         if (result.status === 200 && result.message === 'Authorized') {
           this.toastr.success('Login Success');
           localStorage.setItem('sessionEmail', result.result.sessionEmail);

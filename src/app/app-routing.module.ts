@@ -13,6 +13,7 @@ import { WorkerDashboardComponent } from './components/worker-dashboard/worker-d
 import { MapViewComponent } from './components/map-view/map-view.component';
 import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
 import { LaterComponent } from './components/later/later.component';
+import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 
 const routes: Routes = [
   
@@ -74,8 +75,14 @@ const routes: Routes = [
     path:'navbar',
     component:NavbarComponent
   },
- 
-
+  {
+    path:'client-profile',
+    component:ClientProfileComponent
+  },
+  {
+    path:'worker-profile',
+    component:WorkerProfileComponent
+  },
 
 ];
 
