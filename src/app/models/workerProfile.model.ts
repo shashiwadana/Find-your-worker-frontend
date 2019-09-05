@@ -1,4 +1,4 @@
-export interface WorkerProfile {
+export interface WorkerProfileModel {
    
     Rate:number;
     FirstName:String;
@@ -7,10 +7,12 @@ export interface WorkerProfile {
     ContactNumber:string;
     userEmail:string;
     status:number;
+    ImgUrl: string;
      }
  
-     export interface WorkerProfileResponse {
-         status: number;
-         result: Array<Array<WorkerProfile>>;
-         message: string;
-     }
+     export interface SkillsModel {
+        SkillTitle: string;
+        Description: string;
+        HourlyCharge: number;
+        SkillId: number;
+    }

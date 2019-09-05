@@ -1,327 +1,174 @@
-<div class="container" >
-    <div class="row">
-      <div class="col-md-4"><mdb-card class="view view-cascade  gradient-card-body peach-gradient">
-          <!--Card image-->
-          <mdb-card-img src="https://www.pngkit.com/png/detail/349-3499697_man-placeholder-blank-avatar-icon-png.png" alt="Card image cap"></mdb-card-img>
-          <!--Card content-->
-          <mdb-card-body>
-        
-            <!--Title-->
-            <mdb-card-title>
-              <h4 style="margin-left: 30%">Name</h4>
-            </mdb-card-title>
-        
+<div class="container">
+    <br>
+    <div class="row" *ngFor="let profile of workerData">
+        <div class="col-md-2">
+            <div class="card" style="border-radius: 10%; margin-left: 5%">
+                <div class="container">
+                    <img src={{profile.ImgUrl}} alt="Default profile image" ([ngModel])="ImgUrl">
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" from col-md-5" [formGroup]="form">
+            <div class="form-row">
+                <!-- Name -->
+                <div class="col-md-2">
+                    <label for="clientFName">First Name: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="clientFName" formControlName="firstName" class="form-control mb-4 input-group-lg inline" value={{profile.FirstName}}
+                        placeholder="First Name" [(ngModel)]="FirstName">
+                </div>
+                <div class="col-md-2">
+                    <label for="clienLtName">Last Name: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="clientLName" formControlName="lastName" class="form-control mb-4 input-group-lg inline" value={{profile.LastName}}
+                        placeholder="Last Name" [(ngModel)]="LastName">
+                </div>
+
+            </div>
+            <div class="form-row">
+                <!-- Email -->
+                <div class="col-md-2">
+                    <label for="clientEmail">E-mail: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="email" id="clientEmail" formControlName="email" class="form-control mb-4 input-group-lg" value={{profile.UserEmail}}
+                        placeholder="E-mail" [(ngModel)]="Email">
+                </div>
+            </div>
+            <div class="form-row">
+                <!-- Phone Number -->
+                <div class="col-md-2">
+                    <label for="clientContactNo">Contact Number: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="contactNo" id="clientContactNo" formControlName="contactNo" class="form-control mb-4 input-group-lg" value={{profile.ContactNumber}}
+                        placeholder="Contact Number" [(ngModel)]="ContactNumber">
+                </div>
+            </div>
+            <div class="form-row">
+                <!-- Base Location -->
+                <div class="col-md-2">
+                    <label for="clientLocation">Base Location: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="text" id="clientLocation" formControlName="location" class="form-control mb-4 input-group-lg" placeholder="Location"
+                        value={{profile.BaseLocation}} [(ngModel)]="BaseLocation">
+                </div>
+            </div>
+            <button class="btn btn-default btn-sm float-right" *ngIf="isWorker && !isEditing" (click)="setUpdating()">
+                Edit</button>
+            <button class="btn btn-default btn-sm float-right" *ngIf="isEditing" (click)="updateProfile()">
+                Save</button>
+            <button class="btn btn-danger btn-sm float-right" *ngIf="isEditing" (click)="cancelUpdate()">
+                Cancel</button>
+
+        </div>
+        <br>
+
+
+        <div class="col-md-5">
             
-            <button   mdbBtn type="button" color="default"   style="margin-left: 25%" mdbWavesEffec >
-            Upload New
-            </button>
-          </mdb-card-body>
-        </mdb-card></div>
+            <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 1%;">
+                <div class="card-body scroll-box">
+                    <div class="scrollbar scrollbar-default">
+                        <div class="force-overflow"></div>
+                    </div>
+                    <p>Review1</p>
+                    <p>Review2</p>
+                    <p>Review3</p>
+                </div>
+            </div>
 
-
-
-
-      <div class="col-md-8">
-        <mdb-card class="view view-cascade  gradient-card-body peach-gradient" >
-  
-  <mdb-card-body >
-
-    <!-- Default horizontal form -->
-<form [formGroup]="form">
-    <!-- Grid row -->
-    <div class="form-group row">
-      <!-- Default input -->
-      <label for="inputNamel3" class="col-sm-2 col-form-label">First Name</label>
-      <div class="col-sm-10">
-        <input mdbInput type="text" class="form-control"  id="clientFName" formControlName="firstName" value={{FirstName}} placeholder="First Name" [(ngModel)]="FirstName">
-      </div>
-    </div>
-    <!-- Grid row -->
-  <!-- Grid row -->
-  <div class="form-group row">
-      <!-- Default input -->
-      <label for="inputNamel4" class="col-sm-2 col-form-label">Last Name</label>
-      <div class="col-sm-10">
-        <input mdbInput type="text" class="form-control"id="clientLName" formControlName="lastName" value={{LastName}}  placeholder="Name"  [(ngModel)]="LastName">
-      </div>
-    </div>
-    <!-- Grid row -->
-    <!-- Grid row -->
-    <div class="form-group row">
-      <!-- Default input -->
-      <label for="inputemail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input mdbInput type="email" class="form-control" id="clientEmail" formControlName="email" value={{Email}}  placeholder="Contact Number" [(ngModel)]="Email">
-      </div>
-    </div>
-    <!-- Grid row -->
-
-    <div class="form-group row">
-        <!-- Default input -->
-        <label for="inputcon3" class="col-sm-2 col-form-label">Contact Number</label>
-        <div class="col-sm-10">
-          <input mdbInput type="text" id="clientContactNo" formControlName="contactNo" class="form-control" value={{ContactNumber}} placeholder="Email"  [(ngModel)]="ContactNumber">
         </div>
-      </div>
-      <!-- Grid row -->
-    
-      <!-- Grid row -->
-      <div class="form-group row">
-        <!-- Default input -->
-        <label for="inputlocationl3" class="col-sm-2 col-form-label">Base Location</label>
-        <div class="col-sm-10">
-            <input mdbInput type="text" id="clientLocation" formControlName="location" class="form-control"  placeholder="Location"  [(ngModel)]="BaseLocation">
-        </div>
-      </div>
-
-
-<!--status-->
-<div class="form-group row">
-  <!-- Default input -->
-  <label for="inputskills4" class="col-sm-2 col-form-label">Skills</label>
-  <div class="col-sm-10">
-    <div *ngFor="let job of jobs">
-
-      <h6>
-          {{ job.name }}
-      </h6>
-    
     </div>
-  </div>
+    <br>
+    <hr>
+    <div class="row" style="margin-right: 2%">
+        <h5>My Skills</h5>
+        <button class="btn btn-default btn-sm float-right" style="margin-left: auto;" data-toggle="modal" data-target="#basicExample"
+            (click)="frame.show()" *ngIf="isWorker" mdbWavesEffect>Add Skill</button>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let skill of SkillList">
+            <div class="card" style="margin-left: 2%; margin-right:2%; margin-bottom:5%">
+                <div class=" row card-title">
+                    <div class="col-md-5">
+                        <h5>Title: {{skill.SkillTitle}}</h5>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <!-- <div class="col-md-1">
+                        <button class="btn btn-default btn-sm" *ngIf="isWorker">Edit</button>
+                    </div> -->
+                    <div class="col-md-2"></div>
+                    <div class="col-md-1">
+                        <button class="btn btn-danger btn-sm" style="margin-left:60%" *ngIf="isWorker">Delete</button>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <p>Description: {{skill.Description}}</p>
+                    <p>Hourly Charge: {{skill.HourlyCharge}}</p>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
 </div>
 
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color: #2BBBAD;">
+                <h4 class="modal-title w-100 white-text">
+                    <strong> Add Skill</strong>
+                </h4>
+                <!--close button-->
+                <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-<div class="form-group row">
-    <!-- Default input -->
-    <label for="inputlocationl3" class="col-sm-2 col-form-label">Base Location</label>
-    <div class="col-sm-10">
-<select class="browser-default custom-select" >
-  
-  <option *ngFor="let location of locations" [value]="location.id"> {{location.name}}</option>
- 
-</select></div>
-  </div>
+            <div class="modal-body mx-3 form" [formGroup]="addSkillForm">
+                <!--Skill Title-->
+                <div class="md-form mb-5">
+                    <label for="defaultForm-email">Skill Title</label>
+                    <input type="text" aria-label="Text input with dropdown button" list="jobs" id="defaultForm-email" class="form-control form-control-lg input-border" mdbInput
+                        [(ngModel)]="SkillTitle"  formControlName="skill">
+                    <datalist id="jobs">
+                        <option *ngFor="let job of SysSkills">{{job.SkillTitle}}</option>
+                    </datalist>
+                </div>
 
+                <!--Skill Description-->
+                <div class="md-form mb-4">
+                    <input type="text" id="defaultForm-pass" formControlName="desc" class="form-control" mdbInput [(ngModel)]="Description">
+                    <label for="defaultForm-pass">Description</label>
 
+                </div>
 
+                <!--Hourly rate -->
+                <div class="md-form mb-4">
+                    <input type="text" id="defaultForm-rate" formControlName="rate" class="form-control" mdbInput [(ngModel)]="HourlyRate">
+                    <label for="defaultForm-rate">Hourly Rate</label>
 
+                </div>
 
-      <!-- Grid row -->
-    <div class="form-group row">
-      <!-- Default input -->
-      <label for="inputNamel3" class="col-sm-2 col-form-label">Status</label>
-      <div class="col-sm-10">
-        <input mdbInput type="email" class="form-control" id="inputNamel3" placeholder="Name">
-      </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="addSkill()" (click)="frame.hide()">Add Skill</button>
+                <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="frame.hide()">Cancel</button>
+            </div>
+        </div>
     </div>
-    <!-- Grid row -->
-
-
-
-
-  
-    <!-- Grid row -->
-    <div class="form-group row">
-      <div class="col-sm-10" style="margin-left:15%">
-        <!--<button mdbBtn type="button" color="default" mdbWavesEffect>Submit</button>-->
-        <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-  (click)="frame.show()" style="margin-left: 25%" mdbWavesEffect>Update</button>
-
-<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <mdb-icon  fas icon="user-alt" class="prefix grey-text"></mdb-icon>
-          <input type="text" id="defaultForm-name" [formControl]="loginFormModalName" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-name">Your Name</label>
-          <mdb-error
-            *ngIf="loginFormModalName.invalid && (loginFormModalName.dirty || loginFormModalName.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalName.valid && (loginFormModalName.dirty || loginFormModalName.touched)">Input
-            valid
-          </mdb-success>
-        </div>
-
-        <div class="md-form mb-4">
-          <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
-          <input type="text" id="defaultForm-contact" [formControl]="loginFormModalContact" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-contact">Your Contact</label>
-          <mdb-error
-            *ngIf="loginFormModalContact.invalid && (loginFormModalContact.dirty || loginFormModalContact.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalContact.valid && (loginFormModalContact.dirty || loginFormModalContact.touched)">
-            Input valid
-          </mdb-success>
-        </div>
-
-        
-        <div class="md-form mb-4">
-          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
-          <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-email">Your Email</label>
-          <mdb-error
-            *ngIf="loginFormModalEmail.invalid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalEmail.valid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">
-            Input valid
-          </mdb-success>
-        </div>
-
-        
-        
-        <div class="md-form mb-4">
-          <mdb-icon fas icon="map-marker-alt" class="prefix grey-text"></mdb-icon>
-          <input type="text" id="defaultForm-blocation" [formControl]="loginFormModalBLocation" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-blocation">Your BaseLocation</label>
-          <mdb-error
-            *ngIf="loginFormModalBLocation.invalid && (loginFormModalBLocation.dirty || loginFormModalBLocation.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalBLocation.valid && (loginFormModalBLocation.dirty || loginFormModalBLocation.touched)">
-            Input valid
-          </mdb-success>
-        </div>
-        <!--radio-->
-      <div>
-
-        <div class="form-check form-check-inline">
-            <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="worker">
-            <label class="form-check-label" for="inlineRadio1">Online</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="client">
-            <label class="form-check-label" for="inlineRadio2">Other</label>
-          </div>
-
-    </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Submit</button>
-      </div>
-    </div>
-  </div>
 </div>
-        
-      </div>
-    </div>
-    <!-- Grid row -->
-  </form>
-  <!-- Default horizontal form -->
-
-
-
-
-
-
-
-
-
-    <!--Skills Adding -->
-  </mdb-card-body>
-</mdb-card></div>
-      <div class="w-100"></div>
-      
-      
-    <div class="col col-example">
-
-<br><br>
-      <mdb-card style="margin-left: 0% ; background-color: aqua-gradient">
-        
-        <mdb-card-body class="view view-cascade  gradient-card-body peach-gradient">
-      
-          <!--Title-->
-          <mdb-card-title>
-            <h4 style="margin-left: 30%">Skills</h4>
-          </mdb-card-title>
-      
-          <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample2"
-  (click)="frame1.show()" mdbWavesEffect>Add New Skill</button>
-
-<div mdbModal #frame1="mdbModal" class="modal fade left" id="frameModalTop1" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-      <div class="modal-body mx-3">
-
-      <div class="form-group row mx-3" style="margin-top: 10%">
-        <!-- Default input -->
-        <label for="inputjob1" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-8">
-    <select class="browser-default custom-select" >
-      <!--
-      <option *ngFor="let skill of jobs" [value]="skill.id"> {{skill.name}}</option>
-     -->
-    </select></div>
-      </div>
-
-      
-        <div class="md-form mb-5">
-          <mdb-icon fas icon="dollar-sign" class="prefix grey-text"></mdb-icon>
-          <input type="number" id="defaultForm-rate" [formControl]="loginFormModalRate" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-rate">Hourly Rate</label>
-          <mdb-error
-            *ngIf="loginFormModalRate.invalid && (loginFormModalRate.dirty || loginFormModalRate.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalRate.valid && (loginFormModalRate.dirty || loginFormModalRate.touched)">Input
-            valid
-          </mdb-success>
-        </div>
-
-        <div class="md-form mb-4">
-          <mdb-icon fas icon="comment" class="prefix grey-text"></mdb-icon>
-          <input type="text" id="defaultForm-description" [formControl]="loginFormModalDescription" class="form-control"
-                 mdbInput mdbValidate>
-          <label for="defaultForm-pass">Your Description</label>
-          <mdb-error
-            *ngIf="loginFormModalDescription.invalid && (loginFormModalDescription.dirty || loginFormModalDescription.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success
-            *ngIf="loginFormModalDescription.valid && (loginFormModalDescription.dirty || loginFormModalDescription.touched)">
-            Input valid
-          </mdb-success>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Add</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-          
-        </mdb-card-body>
-      </mdb-card>
-
-
-      <div class="col col-example"></div>
-
-      
-    </div>
-    </div>
-  </div>

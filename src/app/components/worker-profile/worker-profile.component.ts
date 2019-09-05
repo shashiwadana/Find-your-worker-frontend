@@ -1,43 +1,109 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators, FormBuilder} from "@angular/forms";
 import { Location } from '../../models/base-loaction.model';
 import { Job} from '../../models/worker-search.model';
 import{Observable} from 'rxjs';
 import { WokerDataService }from '../../services/woker-data.service';
-import {WorkerProfile,WorkerProfileResponse} from '../../models/workerProfile.model'
+import {WorkerProfileModel,SkillsModel} from '../../models/workerProfile.model';
+import{AuthService} from '../../services/auth.service';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { identifierModuleUrl } from '@angular/compiler';
+//import{Job} from '../../models/worker-search.model'
 @Component({
   selector: 'app-worker-profile',
   templateUrl: './worker-profile.component.html',
   styleUrls: ['./worker-profile.component.scss']
 })
 export class WorkerProfileComponent implements OnInit {
-  validatingForm: FormGroup;
-  locations:Location[]=[
-    {id:1, name:'Colombo'},
-    {id:2, name:'Kandy'},
-    {id:3, name:'Jaffna'}
 
-  ];
- 
-  workerData:WorkerProfile[];
   
-  constructor(private wdata:WokerDataService){
-    this.wdata.get_workerData(localStorage.getItem('UserId')).subscribe((res:WorkerProfileResponse)=>{
-    this.workerData=res.result[0];
-    console.log(this.workerData[0]);
-    });
+ 
+  //isWorker;
+  //isEditing: boolean = false;
+  form:FormGroup;
+  workerData:WorkerProfileModel;
+  //skillList:Job;
+
+
+  Email:string;
+  FirstName: string;
+  LastName: string;
+  ContactNumber:  string;
+  BaseLocation: string;
+  ImgUrl: string;
+  //Status: number = 1;
+  //SkillObj;
+  //SkillTitle: string;
+  //SkillId: number;
+  //Description: string;
+  //HourlyRate: number;
+  //SysSkills: Job[];
+  //SysLocations: string[];
+  //addSkillForm;
+
+  constructor(private wdata:WokerDataService,
+              private auth:AuthService,
+              private route:ActivatedRoute,
+              private router:Router,
+              private toaster:ToastrService,
+              private fb:FormBuilder,
+              //private dataService:Job
+             
+            ){
+              this.form=this.fb.group({
+                firstName:[''],
+                lastName:[''],
+                email:[''],
+                contactNo:[''],
+                location:['']
+               
+              });
+
+              this.wdata.getWorkerDetails(localStorage.getItem('UserId')).subscribe(
+                res=>{
+                  this.workerData=res.result.recordsets[0];
+
+                  if(this.workerData[0].FirstName==null){
+                    this.workerData[0].FirstName='';
+                  }
+                  
+                  if(this.workerData[0].LastName==null){
+                    this.workerData[0].LastName='';
+                  }
+                  
+                  if(this.workerData[0].BaseLocation==null){
+                    this.workerData[0].BaseLocation='';
+                  }
+                  
+                  
+                  if(this.workerData[0].Rate==null){
+                    this.workerData[0].Rate='';
+                  }
+
+                }
+              );
   }
   
+
+
+
+
+
   ngOnInit() {
    
-    this.validatingForm = new FormGroup({
-      loginFormModalEmail: new FormControl('', Validators.email),
-      loginFormModalName: new FormControl('', Validators.required),
-      loginFormModalContact: new FormControl('', Validators.required),
-      loginFormModalBLocation: new FormControl('', Validators.required),
-      loginFormModalRate: new FormControl('', Validators.required),
-      loginFormModalDescription: new FormControl('', Validators.required),
-    });
+    if(this.auth.getUserType()=='worker'){
+      this.isWorker=true;
+    }
+    else{
+      this.isWorker=false;
+    }
+    
+
+ 
+
+
+
   }
 
   
@@ -50,29 +116,6 @@ export class WorkerProfileComponent implements OnInit {
 
 
 
-
-
-
-
-  get loginFormModalEmail() {
-    return this.validatingForm.get('loginFormModalEmail');
-  }
-
-  get loginFormModalName() {
-    return this.validatingForm.get('loginFormModalName');
-  }
-  get loginFormModalContact() {
-    return this.validatingForm.get('loginFormModalContact');
-  }
-  get loginFormModalBLocation() {
-    return this.validatingForm.get('loginFormModalBLocation');
-  }
-  get loginFormModalRate() {
-    return this.validatingForm.get('loginFormModalRate');
-  }
-  get loginFormModalDescription() {
-    return this.validatingForm.get('loginFormModalDescription');
-  }
 
 
 
