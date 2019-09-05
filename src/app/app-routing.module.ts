@@ -70,6 +70,10 @@ const routes: Routes = [
     path:'late',
     component:LaterComponent
   },
+  {
+    path:'navbar',
+    component:NavbarComponent
+  },
  
 
 
