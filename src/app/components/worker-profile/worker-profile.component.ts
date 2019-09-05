@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Location } from '../../models/base-loaction.model';
 import { Job} from '../../models/worker-search.model';
+import{Observable} from 'rxjs';
+import { WokerDataService }from '../../services/woker-data.service';
+import {WorkerProfile,WorkerProfileResponse} from '../../models/workerProfile.model'
 @Component({
   selector: 'app-worker-profile',
   templateUrl: './worker-profile.component.html',
@@ -15,7 +18,15 @@ export class WorkerProfileComponent implements OnInit {
     {id:3, name:'Jaffna'}
 
   ];
-
+ 
+  workerData:WorkerProfile[];
+  
+  constructor(private wdata:WokerDataService){
+    this.wdata.get_workerData(localStorage.getItem('UserId')).subscribe((res:WorkerProfileResponse)=>{
+    this.workerData=res.result[0];
+    console.log(this.workerData[0]);
+    });
+  }
   
   ngOnInit() {
    
@@ -28,6 +39,20 @@ export class WorkerProfileComponent implements OnInit {
       loginFormModalDescription: new FormControl('', Validators.required),
     });
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
   get loginFormModalEmail() {
     return this.validatingForm.get('loginFormModalEmail');

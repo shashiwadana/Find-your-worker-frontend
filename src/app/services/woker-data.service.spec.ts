@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WorkerDataService } from './worker-data.service';
+import { WokerDataService } from './woker-data.service';
 
-describe('WorkerDataService', () => {
+describe('WokerDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: WorkerDataService = TestBed.get(WorkerDataService);
+    const service: WokerDataService = TestBed.get(WokerDataService);
     expect(service).toBeTruthy();
   });
 });

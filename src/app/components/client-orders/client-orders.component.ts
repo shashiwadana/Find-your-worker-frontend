@@ -18,7 +18,7 @@ export class ClientOrdersComponent implements OnInit {
     this.comp.get_completedOrders( localStorage.getItem('UserId')).subscribe((res:CompletedOrderResponse)=>{
       
       this.clientOrders = res.result[0];
-      console.log(this.clientOrders[2]);
+      console.log(this.clientOrders[0]);
     });
 
     this.comp.get_cancelledOrders( localStorage.getItem('UserId')).subscribe((res:CancelledOrderResponse)=>{
