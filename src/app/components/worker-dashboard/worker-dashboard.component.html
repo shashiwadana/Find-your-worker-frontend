@@ -67,6 +67,13 @@
                             <td>{{ogRequest.ExpectedPrice|currency}}</td>
                             
                           </tr>
+                          <tr>
+                            <td>
+                              <button class="btn  btn-default" (click)="endOrder(ogRequest.OrderId)">Start Order</button>
+                              
+                            </td>
+                            <td> </td>
+                          </tr>
                          
                     </table>
                   </div>
@@ -128,6 +135,13 @@
                           <th >Hourly Charge</th>
                           <td>{{upComing.HourlyCharge|currency}}</td>
                           
+                        </tr>
+                        <tr>
+                          <td>
+                            <button class="btn  btn-default" (click)="startOrder(upComing.OrderId)">Start Order</button>
+                            
+                          </td>
+                          <td> </td>
                         </tr>
                   
                   </table>
@@ -192,7 +206,9 @@
                           <td>{{compOrder.FinalPrice|currency}}</td>
                           
                         </tr>
-                  
+                        
+                        
+                        
                   </table>
                 </div>
               </li>
