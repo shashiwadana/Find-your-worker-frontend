@@ -66,7 +66,7 @@ export class MapViewComponent implements OnInit {
   }
 
   sendRequest() {
-    this.mapService.sendJobRequest(this.jobTypeId, this.clientId, this.workersRealTime).subscribe(
+    this.mapService.sendJobRequest(this.jobTypeId, this.clientId, this.workersRealTime,location).subscribe(
       res => {
         console.log(res);
       }

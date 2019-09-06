@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-
+import { Router } from '@angular/router';
 import { Job } from '../../models/worker-search.model';
 import { JobService } from '../../services/job.service';
 @Component({
@@ -11,7 +11,8 @@ import { JobService } from '../../services/job.service';
 export class WorkerSearchComponent implements OnInit {
   
   
-  constructor(private _job:JobService) 
+  constructor(private _job:JobService,
+    private router:Router) 
               { 
                 this._job.getJobs().subscribe(
                   res=>{ console.log(res.recordset);

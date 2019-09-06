@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{Observable} from 'rxjs';
 import{CompletedServicesService} from '../../services/completed-services.service';
+import { Router } from '@angular/router';
 import { CompletedOrder,CompletedOrderResponse,CancelledOrder,CancelledOrderResponse,AcceptedOrder,AcceptedOrderResponse} from '../../models/completedOrders';
 @Component({
   selector: 'app-client-orders',
@@ -13,7 +14,7 @@ export class ClientOrdersComponent implements OnInit {
    cancelledOrders: CancelledOrder[];
    acceptedOrders:AcceptedOrder[];
 
-  constructor(private comp:CompletedServicesService) {
+  constructor(private comp:CompletedServicesService, private router:Router,) {
   
     this.comp.get_completedOrders( localStorage.getItem('UserId')).subscribe((res:CompletedOrderResponse)=>{
       
