@@ -82,6 +82,7 @@
                 <mdb-card-title>
                   <h4>Upcoming Orders</h4>
                 </mdb-card-title>
+                <li *ngFor="let upComing of upcomingOrders">
                 <button mdbBtn color="primary" class="waves-light" type="button" (click)="upcomingor.toggle()" mdbWavesEffect>
                   Upcoming order
                 </button>
@@ -90,44 +91,44 @@
                   <table class="table table-dark">
                     <tr>
                       <th >Date</th>
-                      <td >{{cancelledOrder.OrderDate|date}}</td>
+                      <td >{{upComing.OrderDate|date}}</td>
                       
                     </tr>
                     <tr>
                       <th >Woker First Name</th>
-                      <td >{{cancelledOrder.FirstName}}</td>
+                      <td >{{upComing.FirstName}}</td>
                       
                     </tr>
                   
                     <tr>
                       <th >Woker Last Name</th>
-                      <td>{{cancelledOrder.LastName}}</td>
+                      <td>{{upComing.LastName}}</td>
                      
                     </tr>
                     <tr>
                       <th >Location</th>
-                      <td>{{cancelledOrder.BaseLocation}}</td>
+                      <td>{{upComing.OrderLoaction}}</td>
                       
                     </tr>
                     <tr>
                       <th >Ratings</th>
-                      <td>{{cancelledOrder.Rate}}</td>
+                      <td>{{cupComing.ExpectedStartTime}}</td>
                       
                     </tr>
                     <tr>
                       <th >Reviews</th>
-                      <td>{{cancelledOrder.Review}}</td>
+                      <td>{{upComing.ExpectedEndTime}}</td>
                       
                     </tr>
                     <tr>
                           <th >Price</th>
-                          <td>{{cancelledOrder.FinalPrice|currency}}</td>
+                          <td>{{upComing.HourlyCharge|currency}}</td>
                           
                         </tr>
                   
                   </table>
                 </div>
-                
+              </li>
               </mdb-card-body>
             </mdb-card>
       </div>
@@ -144,6 +145,7 @@
                 <mdb-card-title>
                   <h4>Completed Orders</h4>
                 </mdb-card-title>
+                <li *ngFor="let compOrder of completedOrders">
                 <button mdbBtn color="primary" class="waves-light" type="button" (click)="acceptedor.toggle()" mdbWavesEffect>
                   Completed orders
                 </button>
@@ -152,44 +154,44 @@
                   <table class="table table-dark">
                     <tr>
                       <th >Date</th>
-                      <td >{{cancelledOrder.OrderDate|date}}</td>
+                      <td >{{compOrder.OrderDate|date}}</td>
                       
                     </tr>
                     <tr>
                       <th >Woker First Name</th>
-                      <td >{{cancelledOrder.FirstName}}</td>
+                      <td >{{compOrder.FirstName}}</td>
                       
                     </tr>
                   
                     <tr>
                       <th >Woker Last Name</th>
-                      <td>{{cancelledOrder.LastName}}</td>
+                      <td>{{compOrder.LastName}}</td>
                      
                     </tr>
                     <tr>
                       <th >Location</th>
-                      <td>{{cancelledOrder.BaseLocation}}</td>
+                      <td>{{compOrder.OrderLoaction}}</td>
                       
                     </tr>
                     <tr>
                       <th >Ratings</th>
-                      <td>{{cancelledOrder.Rate}}</td>
+                      <td>{{compOrderr.Rate}}</td>
                       
                     </tr>
                     <tr>
                       <th >Reviews</th>
-                      <td>{{cancelledOrder.Review}}</td>
+                      <td>{{compOrderr.Review}}</td>
                       
                     </tr>
                     <tr>
                           <th >Price</th>
-                          <td>{{cancelledOrder.FinalPrice|currency}}</td>
+                          <td>{{compOrder.FinalPrice|currency}}</td>
                           
                         </tr>
                   
                   </table>
                 </div>
-                
+              </li>
               </mdb-card-body>
             </mdb-card>
       </div>

@@ -14,7 +14,9 @@ export class RequestService {
   get_completedRequests(user){
     return this.httpClient.get('http://localhost:3000/ordersWorker/getCompletedOrders/'+user);
   };
-  get_upcomingRequests(){};
+  get_upcomingRequests(user){
+    return this.httpClient.get('http://localhost:3000/ordersWorker/getUpComingOrders/'+user);
+  };
 
 
 }
