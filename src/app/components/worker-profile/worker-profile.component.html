@@ -102,78 +102,7 @@
         <button class="btn btn-warning btn-sm float-left" style="margin-right: auto;" data-toggle="modal" data-target="#basicExample"
             (click)="frame.show()" *ngIf="isWorker" mdbWavesEffect>Add Skill</button>
     </div>
-    <div class="row">
-        <div class="col-md-3" *ngFor="let skill of SkillList">
-            <div class="card" style="margin-left: 2%; margin-right:2%; margin-bottom:5%">
-                <div class=" row card-title">
-                    <div class="col-md-5">
-                        <h5>Title: {{skill.SkillTitle}}</h5>
-                    </div>
-                    <div class="col-md-1"></div>
-                    <!-- <div class="col-md-1">
-                        <button class="btn btn-default btn-sm" *ngIf="isWorker">Edit</button>
-                    </div> -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-1">
-                        <button class="btn btn-danger btn-sm" style="margin-left:60%" *ngIf="isWorker">Delete</button>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <p>Description: {{skill.Description}}</p>
-                    <p>Hourly Charge: {{skill.HourlyCharge}}</p>
-                </div>
-            </div>
-        </div>
-        <br>
-
-    </div>
+    
 </div>
 
-<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-center" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center" style="background-color: #2BBBAD;">
-                <h4 class="modal-title w-100 white-text">
-                    <strong> Add Skill</strong>
-                </h4>
-                <!--close button-->
-                <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
 
-            <div class="modal-body mx-3 form" [formGroup]="addSkillForm">
-                <!--Skill Title-->
-                <div class="md-form mb-5">
-                    <label for="defaultForm-email">Skill Title</label>
-                    <input type="text" aria-label="Text input with dropdown button" list="jobs" id="defaultForm-email" class="form-control form-control-lg input-border" mdbInput
-                        [(ngModel)]="SkillTitle"  formControlName="skill">
-                    <datalist id="jobs">
-                        <option *ngFor="let job of SysSkills">{{job.SkillTitle}}</option>
-                    </datalist>
-                </div>
-
-                <!--Skill Description-->
-                <div class="md-form mb-4">
-                    <input type="text" id="defaultForm-pass" formControlName="desc" class="form-control" mdbInput [(ngModel)]="Description">
-                    <label for="defaultForm-pass">Description</label>
-
-                </div>
-
-                <!--Hourly rate -->
-                <div class="md-form mb-4">
-                    <input type="text" id="defaultForm-rate" formControlName="rate" class="form-control" mdbInput [(ngModel)]="HourlyRate">
-                    <label for="defaultForm-rate">Hourly Rate</label>
-
-                </div>
-
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="warning" class="waves-light" mdbWavesEffect (click)="addSkill()" (click)="frame.hide()">Add Skill</button>
-                <button mdbBtn color="warning" class="waves-light" mdbWavesEffect (click)="frame.hide()">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>

@@ -1,6 +1,6 @@
 export interface Job {
-SkillId:number;
-SkillTitle:String;
+    SkillId: number;
+    SkillTitle: string;
 }
 
 export interface JobModelRes {

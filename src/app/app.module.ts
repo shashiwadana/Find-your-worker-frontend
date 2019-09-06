@@ -29,6 +29,7 @@ import { LaterComponent } from './components/later/later.component';
 import { ClientOrdersComponent } from './components/client-orders/client-orders.component';
 import { AgmCoreModule } from '@agm/core';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ClientProfileComponent } from './components/client-profile/client-profi
     BooklaterComponent,
     LaterComponent,
     ClientOrdersComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    RequestsComponent
     
     
   ],

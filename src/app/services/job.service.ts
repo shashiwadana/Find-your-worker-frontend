@@ -9,8 +9,11 @@ export class JobService {
   //private _url:string=""
   constructor(private http:HttpClient) { }
 
-  getJobs():Observable<JobModelRes>{
+  getJobs(){
     return this.http.get<JobModelRes>('http://localhost:3000/dataservices/getallskills');
+  }
+  getAllLocations(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/dataservices/getalllocations');
   }
 }
 
