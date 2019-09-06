@@ -16,11 +16,7 @@
                   
                   <div class="" mdbCollapse #todayjobs="bs-collapse">
                     <table class="table table-dark">
-                      <tr>
-                        <th >Expected End Date</th>
-                        <td >{{ogRequest.ExpectedEndTime|date}}</td>
-                        
-                      </tr>
+                      
                       <tr>
                         <th >Client First Name</th>
                         <td >{{ogRequest.FirstName}}</td>
@@ -28,9 +24,14 @@
                       </tr>
                     
                       <tr>
-                        <th >Woker Last Name</th>
+                        <th >Client Last Name</th>
                         <td>{{ogRequest.LastName}}</td>
                        
+                      </tr>
+                      <tr>
+                        <th >Client Contact Number</th>
+                        <td>{{ogRequest.ContactNumber}}</td>
+                        
                       </tr>
                       <tr>
                         <th >Location</th>
@@ -38,28 +39,31 @@
                         
                       </tr>
                       <tr>
-                        <th >Ratings</th>
+                        <th >Duration</th>
                         <td>{{ogRequest.Duration}}</td>
                         
                       </tr>
+
                       <tr>
-                        <th >Reviews</th>
-                        <td>{{ogRequest.ContactNumber}}</td>
+                        <th >Expected Start Time</th>
+                        <td>{{ogRequest.StartTime}}</td>
                         
                       </tr>
                       <tr>
-                            <th >Expected Start Time</th>
+                        <th >Expected End Date</th>
+                        <td >{{ogRequest.ExpectedEndTime|date}}</td>
+                        
+                      </tr>
+                     
+                      <tr>
+                            <th >Hourly Charge</th>
                             <td>{{ogRequest.HourlyCharge}}</td>
                             
                           </tr>
 
-                          <tr>
-                                <th >Expected End Time</th>
-                                <td>{{ogRequest.StartTime}}</td>
-                                
-                              </tr>
+                          
                       <tr>
-                            <th >Price</th>
+                            <th >Expected Price</th>
                             <td>{{ogRequest.ExpectedPrice|currency}}</td>
                             
                           </tr>
@@ -95,13 +99,13 @@
                       
                     </tr>
                     <tr>
-                      <th >Woker First Name</th>
+                      <th >Client First Name</th>
                       <td >{{upComing.FirstName}}</td>
                       
                     </tr>
                   
                     <tr>
-                      <th >Woker Last Name</th>
+                      <th >Client Last Name</th>
                       <td>{{upComing.LastName}}</td>
                      
                     </tr>
@@ -111,17 +115,17 @@
                       
                     </tr>
                     <tr>
-                      <th >Ratings</th>
+                      <th >Expected Start Time</th>
                       <td>{{cupComing.ExpectedStartTime}}</td>
                       
                     </tr>
                     <tr>
-                      <th >Reviews</th>
+                      <th >Expected End Time</th>
                       <td>{{upComing.ExpectedEndTime}}</td>
                       
                     </tr>
                     <tr>
-                          <th >Price</th>
+                          <th >Hourly Charge</th>
                           <td>{{upComing.HourlyCharge|currency}}</td>
                           
                         </tr>
@@ -158,13 +162,13 @@
                       
                     </tr>
                     <tr>
-                      <th >Woker First Name</th>
+                      <th >Client First Name</th>
                       <td >{{compOrder.FirstName}}</td>
                       
                     </tr>
                   
                     <tr>
-                      <th >Woker Last Name</th>
+                      <th >Client Last Name</th>
                       <td>{{compOrder.LastName}}</td>
                      
                     </tr>
@@ -175,12 +179,12 @@
                     </tr>
                     <tr>
                       <th >Ratings</th>
-                      <td>{{compOrderr.Rate}}</td>
+                     <td>{{compOrder.Rate}}</td>
                       
                     </tr>
                     <tr>
                       <th >Reviews</th>
-                      <td>{{compOrderr.Review}}</td>
+                      <td>{{compOrder.Review}}</td>
                       
                     </tr>
                     <tr>

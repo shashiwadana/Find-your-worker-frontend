@@ -11,18 +11,20 @@ export class WorkerDashboardComponent implements OnInit {
   ongoingOrders:OngoingRequestModel[];
   completedOrders:CompletedRequestModel[];
   upcomingOrders:UpcomingRequestModel[];
+  
   constructor(private order:RequestService) { 
-    this.order.get_ongoingRequests(localStorage.getItem('UserId')).subscribe((res:OngoingRequestModelResponse)=>{
+    //localStorage.getItem('UserId')
+    this.order.get_ongoingRequests(3).subscribe((res:OngoingRequestModelResponse)=>{
       this.ongoingOrders=res.result[0];
-      console.log(this.ongoingOrders[0]);
+      console.log(res.result[0]);
     });
 
-    this.order.get_completedRequests(localStorage.getItem('UserId')).subscribe((res:CompletedRequestModelResponse)=>{
+    this.order.get_completedRequests(3).subscribe((res:CompletedRequestModelResponse)=>{
       this.completedOrders=res.result[0];
       console.log(this.completedOrders[0]);
     });
 
-    this.order.get_upcomingRequests(localStorage.getItem('UserId')).subscribe((res:UpcomingRequestModelResponse)=>{
+    this.order.get_upcomingRequests(3).subscribe((res:UpcomingRequestModelResponse)=>{
       this.upcomingOrders=res.result[0];
       console.log(this.upcomingOrders[0]);
   
