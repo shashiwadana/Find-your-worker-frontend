@@ -41,6 +41,7 @@ export class WorkerDashboardComponent implements OnInit {
     const startTime = new Date().getHours() + ':' + new Date().getMinutes() + ':'+  new Date().getSeconds();
     this.order.start_order(OrderId,startTime).subscribe(res=>{
       console.log(res);
+      this.toastr.info("Order Started");
     });
   }
   endOrder(OrderId){
