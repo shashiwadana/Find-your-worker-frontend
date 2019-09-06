@@ -30,7 +30,8 @@ export class RequestsComponent implements OnInit {
     private toastrService: ToastrService,
     private userService:AuthService,
     private dataService:JobService,
-    private requestService:WorkerRequestsService
+    private requestService:WorkerRequestsService,
+    private toastr:ToastrService,
   ) { }
 
   ngOnInit() {
@@ -59,6 +60,7 @@ export class RequestsComponent implements OnInit {
     this.requestService.acceptRequest(requestId, localStorage.getItem('UserId')).subscribe(
       res => {
         console.log(res);
+        this.toastr.success('Request Accepted');
         this.router.navigate(['/worker-profile']);
       }
     )
