@@ -1,4 +1,62 @@
-<p>later works!</p>
-<agm-map [latitude]="latitude" [longitude]="longitude" style="height: 300px" (mapClick)="placeMarker($event)">
-        <agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
-      </agm-map>
+
+
+<div class="col-sm">
+  <mdb-card>
+      <mdb-card-body>
+    
+        <!--Title-->
+        <mdb-card-title>
+          <h4>Available Workers</h4>
+        </mdb-card-title>
+        <!--button with data-->
+        <li *ngFor="let acptOrder of availableWorkers">
+        <button mdbBtn color="primary" class="waves-light" type="button" (click)="ongjobs.toggle()" mdbWavesEffect>
+          Available Workers
+        </button>
+        
+        <div class="" mdbCollapse #ongjobs="bs-collapse">
+              <table class="table table-dark">
+                      
+                        <tr>
+                          <th >Woker First Name</th>
+                          <td >{{worker.firstName}}</td>
+                          
+                        </tr>
+                      
+                        <tr>
+                          <th >Woker Last Name</th>
+                          <td>{{worker.lastName}}</td>
+                         
+                        </tr>
+                        <tr>
+                          <th >Location</th>
+                          <td>{{worker.baseLocation}}</td>
+                          
+                        </tr>
+                        <tr>
+                          <th >Ratings</th>
+                          <td>{{worker.rate}}</td>
+                          
+                        </tr>
+                        <tr>
+                          <th >Reviews</th>
+                          <td>{{worker.skillDescription}}</td>
+                          
+                        </tr>
+                        
+
+                            
+                        <tr>
+                              <th >Price</th>
+                              <td>{{worker.hourlyCharge|currency}}</td>
+                              
+                            </tr>
+                           
+                    </table>
+        </div>
+        <!-- end button with data-->
+        </li>
+        <button class="btn btn-default" (click)="sendRequest()" *ngIf = "isLogged && !noWorkers">Send Requests</button>
+      </mdb-card-body>
+    </mdb-card>
+</div>

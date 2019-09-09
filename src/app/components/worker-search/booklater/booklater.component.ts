@@ -1,6 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
   selector: 'app-booklater',
   templateUrl: './booklater.component.html',
@@ -16,9 +18,13 @@ export class BooklaterComponent implements OnInit {
   constructor(
     private toastr: ToastrService,
     private router: Router,
+    
   ) { }
+ 
+
 
   ngOnInit() {
+   
   }
   onclickBookLater(){
     if(this.jobTypeId === undefined || this.date === undefined || this.startTime === undefined || this.endTime === undefined){
@@ -28,7 +34,7 @@ export class BooklaterComponent implements OnInit {
       });
     }
     else{
-      this.router.navigate(['later', {baseLocation: this.baseLocation, jobType: this.jobTypeId, date: this.date, startTime: this.startTime, endTime: this.endTime}]);
+      this.router.navigate(['/later', {jobType: this.jobTypeId, date: this.date, startTime: this.startTime, endTime: this.endTime}]);
     }
     
   }

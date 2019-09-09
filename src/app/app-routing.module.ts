@@ -69,7 +69,7 @@ const routes: Routes = [
   },
  
   {
-    path:'late',
+    path:'later',
     component:LaterComponent
   },
   {
