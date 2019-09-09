@@ -10,7 +10,7 @@
                     <h4>Ongoing Orders</h4>
                   </mdb-card-title>
                   <!--button with data-->
-                  <li *ngFor="let ogRequest of ongoingRequest">
+                  <li *ngFor="let ogRequest of ongoingOrders">
                   <button mdbBtn color="primary" class="waves-light" type="button" (click)="todayjobs.toggle()" mdbWavesEffect>
                     Ongoing order
                   </button>
@@ -52,7 +52,7 @@
                       </tr>
                       <tr>
                         <th >Expected End Date</th>
-                        <td >{{ogRequest.ExpectedEndTime|date}}</td>
+                        <td >{{ogRequest.ExpectedEndTime}}</td>
                         
                       </tr>
                      
@@ -68,13 +68,7 @@
                             <td>{{ogRequest.ExpectedPrice|currency}}</td>
                             
                           </tr>
-                          <tr>
-                            <td>
-                              <button class="btn  btn-default" (click)="endOrder(ogRequest.OrderId)">Start Order</button>
-                              
-                            </td>
-                            <td> </td>
-                          </tr>
+                          
                          
                     </table>
                   </div>
