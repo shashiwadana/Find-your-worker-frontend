@@ -15,7 +15,7 @@ export class WorkerDashboardComponent implements OnInit {
   upcomingOrders:UpcomingRequestModel[];
   OrderId:number;
   constructor(private order:RequestService,
-    private toastr: ToastrService,) { 
+              private toastr: ToastrService,) { 
     
     
   }
@@ -23,7 +23,7 @@ export class WorkerDashboardComponent implements OnInit {
   ngOnInit() {
     this.order.get_ongoingRequests(localStorage.getItem('UserId')).subscribe((res:OngoingRequestModelResponse)=>{
       this.ongoingOrders=res.result[0];
-      console.log(res.result[0]);
+      console.log(this.ongoingOrders[0]);
     });
 
     this.order.get_completedRequests(localStorage.getItem('UserId')).subscribe((res:CompletedRequestModelResponse)=>{
@@ -38,9 +38,10 @@ export class WorkerDashboardComponent implements OnInit {
     });
   }
 
-  startOrder(OrderId){
+  startOrder(orderId){
     const startTime = new Date().getHours() + ':' + new Date().getMinutes() + ':'+  new Date().getSeconds();
-    this.order.start_order(OrderId,startTime).subscribe(res=>{
+    console.log(startTime);
+    this.order.start_order(orderId,startTime).subscribe(res=>{
       console.log(res);
       this.toastr.info("Order Started");
       window.location.reload();
