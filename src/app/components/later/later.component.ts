@@ -78,6 +78,10 @@ export class LaterComponent implements OnInit {
       res => {
         console.log(res);
         //this.router.navigate(['/client/requests']);
+        this.toastr.success('Request Sent Successfully', '', {
+          timeOut: 3000,
+          positionClass: 'toast-top-right'
+        });
       }
     );
   }

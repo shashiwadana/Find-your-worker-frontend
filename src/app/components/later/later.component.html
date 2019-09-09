@@ -6,10 +6,10 @@
     
         <!--Title-->
         <mdb-card-title>
-          <h4>Available Workers</h4>
+          <h4>Book Later</h4>
         </mdb-card-title>
         <!--button with data-->
-        <li *ngFor="let acptOrder of availableWorkers">
+        <li *ngFor="let availableW of availableWorkers">
         <button mdbBtn color="primary" class="waves-light" type="button" (click)="ongjobs.toggle()" mdbWavesEffect>
           Available Workers
         </button>
@@ -18,29 +18,29 @@
               <table class="table table-dark">
                       
                         <tr>
-                          <th >Woker First Name</th>
-                          <td >{{worker.firstName}}</td>
+                          <th >Worker First Name</th>
+                          <td >{{availableW.firstName}}</td>
                           
                         </tr>
                       
                         <tr>
-                          <th >Woker Last Name</th>
-                          <td>{{worker.lastName}}</td>
+                          <th >Worker Last Name</th>
+                          <td>{{availableW.lastName}}</td>
                          
                         </tr>
                         <tr>
                           <th >Location</th>
-                          <td>{{worker.baseLocation}}</td>
+                          <td>{{availableW.baseLocation}}</td>
                           
                         </tr>
                         <tr>
                           <th >Ratings</th>
-                          <td>{{worker.rate}}</td>
+                          <td>{{availableW.rate}}</td>
                           
                         </tr>
                         <tr>
                           <th >Reviews</th>
-                          <td>{{worker.skillDescription}}</td>
+                          <td>{{availableW.skillDescription}}</td>
                           
                         </tr>
                         
@@ -48,7 +48,7 @@
                             
                         <tr>
                               <th >Price</th>
-                              <td>{{worker.hourlyCharge|currency}}</td>
+                              <td>{{availableW.hourlyCharge|currency}}</td>
                               
                             </tr>
                            
