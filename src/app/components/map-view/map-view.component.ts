@@ -14,7 +14,9 @@ export class MapViewComponent implements OnInit {
   jobTypeId: number;
   baseLocation: string;
   clientId: number;
+  location:string='';
   private sub: any;
+  noAvailableWorkers:boolean=false;
 
   lat;
   lng;
@@ -36,29 +38,43 @@ export class MapViewComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.jobTypeId = +params['jobType'];
       this.baseLocation = params['location'];
-      this.mapService.getNearbyWorkers(this.jobTypeId, this.baseLocation).subscribe(
+      if(this.userService.isLogged()=== null){
+        this.isLogged = false;
+      }
+      else{
+        this.isLogged = true;
+      }
+      this.mapService.getNearbyWorkers(this.jobTypeId, this.clientId,this.location).subscribe(
         res => {
           this.workersRealTime = res.result.workers;
           this.lat = res.result.centerOfMap.latitude;
           this.lng = res.result.centerOfMap.longitude;
           console.log(this.workersRealTime);
+          if(this.workersRealTime.length==0){
+            this.noAvailableWorkers=true;
+            this.toastr.info('', 'No available Workers', {
+              timeOut: 3000,
+              positionClass: 'toast-top-right',
+            });
+          }
+          else{
+            this.toastr.info('', 'Click on locators to see availble workers', {
+              timeOut: 3000,
+              positionClass: 'toast-top-right',
+            });
+          }
         }
       );
 
     });
     
     //Tostr Service...............
-    this.toastr.info('', 'Click to view Worker Summary', {
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-    });
+    
 
-    if(this.userService.isLogged()=== null){
-      this.isLogged = false;
-    }
-    else{
-      this.isLogged = true;
-    }
+   
+  }
+  navigateToSearch(){
+    this.router.navigate(['/worker-search']);
   }
 
   navigateToLogin(){
@@ -66,7 +82,8 @@ export class MapViewComponent implements OnInit {
   }
 
   sendRequest() {
-    this.mapService.sendJobRequest(this.jobTypeId, this.clientId, this.workersRealTime,location).subscribe(
+    const location = '6.7881,6.7881';
+    this.mapService.sendJobRequest(this.jobTypeId, this.clientId, this.workersRealTime,this.baseLocation).subscribe(
       res => {
         console.log(res);
       }

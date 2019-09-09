@@ -39,7 +39,7 @@ export class RequestsComponent implements OnInit {
     this.dataService.getJobs().subscribe(
       res => {
         this.SkillList = res.recordset;
-        this.requestService.getRequests(3).subscribe(
+        this.requestService.getRequests(localStorage.getItem('UserId')).subscribe(
           res => {
             this.RequestList = res.result[0];
             console.log(this.RequestList);
@@ -61,7 +61,7 @@ export class RequestsComponent implements OnInit {
       res => {
         console.log(res);
         this.toastr.success('Request Accepted');
-        this.router.navigate(['/worker-profile']);
+        this.router.navigate(['/worker-dashboard']);
       }
     )
   }

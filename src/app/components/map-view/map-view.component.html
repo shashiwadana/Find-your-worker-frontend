@@ -48,8 +48,9 @@
     
         <div class="container mt-5 text-canter">
             <div class="row text-center" style="display: inline">
-                <button class="btn btn-lg btn-warning" (click)="navigateToLogin()" *ngIf = "!isLogged">Login to Book Workers</button>
-                <button class="btn btn-lg btn-warning" (click)="sendRequest()" *ngIf = "isLogged">Send Requests</button>
+                <button class="btn btn-lg btn-warning" (click)="navigateToLogin()" *ngIf = "!isLogged && !noAvailableWorkers">Login to Book Workers</button>
+                <button class="btn btn-lg btn-warning" (click)="sendRequest()" *ngIf = "isLogged && !noAvailableWorkers">Send Requests</button>
+                <button class="btn btn-lg btn-default" (click)="navigateToSearch()" *ngIf = "noWorkers">Go Back To Search</button>
             </div>
         </div>
     </div>

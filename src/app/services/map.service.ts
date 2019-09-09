@@ -9,10 +9,10 @@ import{ServerResponse} from '../models/booknowresponse.model';
 export class MapService {
 
   constructor(private http: HttpClient) { }
-  getNearbyWorkers(jobType, baseLocation): Observable<ServerResponse>{
+  getNearbyWorkers(jobType,clientId, clientCoordinate): Observable<ServerResponse>{
     return this.http.post<ServerResponse>(
       'http://localhost:3000/booknow/booknow',
-      {'jobType': jobType, 'baseLocation': baseLocation}
+      {'jobType': jobType, 'clientId':clientId,'clientCoordinate': clientCoordinate}
     );
   }
 
