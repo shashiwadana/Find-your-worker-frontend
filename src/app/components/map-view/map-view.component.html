@@ -43,7 +43,7 @@
     
         </agm-map>
     
-        <div class="container mt-5 text-canter">
+        <div class="container mt-5 text-canter" style="margin-left: 10cm;margin-bottom: 3cm">
             <div class="row text-center" style="display: inline">
                 <button class="btn btn-lg btn-warning" (click)="navigateToLogin()" *ngIf = "!isLogged && !noAvailableWorkers">Login to Book Workers</button>
                 <button class="btn btn-lg btn-warning" (click)="sendRequest()" *ngIf = "isLogged && !noAvailableWorkers">Send Requests</button>

@@ -87,6 +87,10 @@ export class MapViewComponent implements OnInit {
       res => {
         console.log(res);
         console.log("map request sent");
+        this.toastr.success('Request Sent Successfully','Notice', {
+          timeOut: 3000,
+          positionClass: 'toast-top-right',
+        });
       }
     );
 
