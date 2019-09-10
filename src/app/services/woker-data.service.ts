@@ -26,24 +26,7 @@ export class WokerDataService {
       'imgURL': imgUrl
     });
   }
-  deleteSkill(workerId, skillId): Observable<any>{
-    return this.http.delete<any>('http://localhost:3000/worker/skill/' + workerId, {
-      
-    });
-  }
-
-  addSkill(workerId, skillObj): Observable<any>{
-    console.log(skillObj);
-    return this.http.post<any>('http://localhost:3000/worker/skill/'+ workerId, {
-      'skillObj': {skillObj}
-    })
-  }
-
-  updateSkill(workerId, skillObj): Observable<any>{
-    return this.http.put<any>('http://localhost:3000/worker/skill/' + workerId, {
-      'skillObj': {skillObj}
-  })
-  }
+  
   */
 
 }
