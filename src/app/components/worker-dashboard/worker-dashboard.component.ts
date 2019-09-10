@@ -35,7 +35,7 @@ export class WorkerDashboardComponent implements OnInit {
 
     this.order.get_upcomingRequests(localStorage.getItem('UserId')).subscribe((res:UpcomingRequestModelResponse)=>{
       this.upcomingOrders=res.result[0];
-      console.log(this.upcomingOrders[0]);
+      console.log(res.result[0]);
       console.log("ongoingOrders2");
   
     });

@@ -6,6 +6,7 @@ export interface CompletedOrder {
    FirstName:String;
    LastName:String;
    BaseLocation:string;
+   
     }
 
     export interface CompletedOrderResponse {
@@ -25,7 +26,7 @@ export interface CancelledOrder {
    BaseLocation:string;
    StartTime:string;
    EndTime:string;
-   
+  
 
     }
 
@@ -45,7 +46,7 @@ export interface CancelledOrder {
         BaseLocation:string;
         StartTime:string;
         EndTime:string;
-        
+       
      
          }
      
