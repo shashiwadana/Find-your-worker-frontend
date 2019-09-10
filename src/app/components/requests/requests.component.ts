@@ -62,6 +62,7 @@ export class RequestsComponent implements OnInit {
         console.log(res);
         this.toastr.success('Request Accepted');
        // this.router.navigate(['/worker-dashboard']);
+       window.location.reload();
       }
     )
   }

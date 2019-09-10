@@ -47,11 +47,18 @@ export class LaterComponent implements OnInit {
       console.log(this.longitude);
       this.bookLaterService.getWorkers( localStorage.getItem('UserId'), this.location, this.jobTypeId, this.date, this.startTime, this.endTime, ).subscribe(
         res => {
-          
+          if(res.message ==="No workers available"){
+            this.noWorkers = true;
+            this.toastr.warning('Sorry, There are No Workers Available right now!', '', {
+              timeOut: 3000,
+              positionClass: 'toast-top-center'
+            });
+          }
+          else{
             this.availableWorkers = res.result.Workers;
             console.log(res.result.Workers);
             this.requestDetails = res.result.User;
-          
+          }
          
         }
       );
@@ -70,7 +77,10 @@ export class LaterComponent implements OnInit {
   sendRequest(){
     this.bookLaterService.sendRequest(this.requestDetails, this.availableWorkers).subscribe(
       res => {
+        console.log("availableWorkers");
+        console.log(this.availableWorkers);
         console.log(res);
+        window.location.reload();
        // this.router.navigate(['/worker-search']);
         this.toastr.success('Request Sent Successfully', '', {
           timeOut: 3000,

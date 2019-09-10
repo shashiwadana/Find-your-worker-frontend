@@ -55,6 +55,7 @@ export class WorkerDashboardComponent implements OnInit {
      this.order.end_order(OrderId,endTime).subscribe(res=>{
        console.log(res);
        this.toastr.info("Order Ended");
+       window.location.reload();
      });
   }
   getOrderId(orderId){
