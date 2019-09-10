@@ -92,5 +92,7 @@ export class MapViewComponent implements OnInit {
 
 
   }
+ 
+
 
 }
