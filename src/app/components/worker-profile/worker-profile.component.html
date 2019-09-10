@@ -68,11 +68,11 @@
                 <a routerLink="/worker-dashboard"><strong>Dashboard</strong></a>
             </p>
             <br>
-            <button class="btn btn-warning btn-sm " *ngIf="isWorker " (click)="setUpdating()">
+            <button class="btn btn-warning btn-lg " *ngIf="isWorker && !isEditing " (click)="setUpdating()" style="margin-left: 5cm">
                 Edit</button>
-            <button class="btn btn-warning btn-sm " *ngIf="isWorker" (click)="updateProfile()">
+            <button class="btn btn-warning btn-lg " *ngIf="isEditing" (click)="updateProfile()" style="margin-left: 5cm">
                 Save</button>
-            <button class="btn btn-danger btn-sm " *ngIf="isEditing" (click)="cancelUpdate()">
+            <button class="btn btn-danger btn-lg " *ngIf="isEditing" (click)="cancelUpdate()" style="margin-left: 5cm">
                 Cancel</button>
 
         </div>

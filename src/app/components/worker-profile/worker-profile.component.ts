@@ -20,7 +20,7 @@ export class WorkerProfileComponent implements OnInit {
   
  
   isWorker;
-  //isEditing: boolean = false;
+  isEditing: boolean = false;
   form:FormGroup;
   workerData:WorkerProfileModel;
   //skillList:Job;
@@ -32,6 +32,8 @@ export class WorkerProfileComponent implements OnInit {
   ContactNumber:  string;
   BaseLocation: string;
   ImgUrl: string;
+  private sub: any;
+  id: number;
   //Status: number = 1;
   //SkillObj;
   //SkillTitle: string;
@@ -83,45 +85,50 @@ export class WorkerProfileComponent implements OnInit {
 
                 }
               );
+
+             
+
+
   }
   
 
-
-
-
-
   ngOnInit() {
-   
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    })
     if(this.auth.getUserType()=='worker'){
       this.isWorker=true;
     }
     else{
       this.isWorker=false;
     }
-    
-
- 
-
-
+    if (this.isEditing) {
+      this.form.enable();
+    }
+    else {
+      this.form.disable();
+    }
 
   }
 
+  setUpdating() {
+    this.isEditing = true;
+    this.form.enable();
+  }
+
+  cancelUpdate() {
+    this.isEditing = false;
+    this.form.disable();
+  }
+
+  updateProfile(){
+    this.wdata.updateWorkerDetails(parseInt(localStorage.getItem('UserId')), this.FirstName, this.LastName, this.BaseLocation, this.ContactNumber).subscribe(
+      res => {
+        this.isEditing = false;
+        this.form.disable();
+      }
+    )
+  }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
