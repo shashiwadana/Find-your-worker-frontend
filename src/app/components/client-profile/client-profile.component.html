@@ -1,1 +1,86 @@
-<p>client-profile works!</p>
+<div class="container">
+    <br>
+    <div class="row" *ngFor="let profile of clientData">
+        <div class="col-md-2">
+            <div class="card" style="border-radius: 10%; margin-left: 5%">
+                <div class="container">
+                    <img src={{profile.ImgUrl}} alt="Default profile image" ([ngModel])="ImgUrl">
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" from col-md-5" [formGroup]="form">
+            <div class="form-row">
+                <!-- Name -->
+                <div class="col-md-2">
+                    <label for="clientFName">First Name: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="clientFName" formControlName="firstName" class="form-control mb-4 input-group-lg inline" value={{profile.FirstName}}
+                        placeholder="First Name" [(ngModel)]="FirstName">
+                </div>
+                <div class="col-md-2">
+                    <label for="clienLtName">Last Name: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="clientLName" formControlName="lastName" class="form-control mb-4 input-group-lg inline" value={{profile.LastName}}
+                        placeholder="Last Name" [(ngModel)]="LastName">
+                </div>
+
+            </div>
+            <div class="form-row">
+                <!-- Email -->
+                <div class="col-md-2">
+                    <label for="clientEmail">E-mail: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="email" id="clientEmail" formControlName="email" class="form-control mb-4 input-group-lg" value={{profile.UserEmail}}
+                        placeholder="E-mail" [(ngModel)]="Email">
+                </div>
+            </div>
+            <div class="form-row">
+                <!-- Phone Number -->
+                <div class="col-md-2">
+                    <label for="clientContactNo">Contact Number: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="contactNo" id="clientContactNo" formControlName="contactNo" class="form-control mb-4 input-group-lg" value={{profile.ContactNumber}}
+                        placeholder="Contact Number" [(ngModel)]="ContactNumber">
+                </div>
+            </div>
+            <div class="form-row">
+                <!-- Base Location -->
+                <div class="col-md-2">
+                    <label for="clientLocation">Base Location: </label>
+                </div>
+
+                <div class="col-md-10">
+                    <input type="text" id="clientLocation" formControlName="location" class="form-control mb-4 input-group-lg" placeholder="Location"
+                        value={{profile.BaseLocation}} [(ngModel)]="BaseLocation">
+                </div>
+            </div>
+            <p style="margin-left: 25%"> Back to Dashboard?
+                <a routerLink="/worker-dashboard"><strong>Dashboard</strong></a>
+            </p>
+            <br>
+            <button class="btn btn-warning btn-lg " *ngIf="isClient && !isEditing " (click)="setUpdating()" style="margin-left: 5cm">
+                Edit</button>
+            <button class="btn btn-warning btn-lg " *ngIf="isEditing" (click)="updateProfile()" style="margin-left: 5cm">
+                Save</button>
+            <button class="btn btn-danger btn-lg " *ngIf="isEditing" (click)="cancelUpdate()" style="margin-left: 5cm">
+                Cancel</button>
+
+        </div>
+        <br>
+
+    </div>
+    <br>
+    <hr>
+   
+    
+</div>
