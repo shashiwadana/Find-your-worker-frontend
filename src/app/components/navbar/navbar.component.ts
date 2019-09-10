@@ -35,6 +35,8 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('sessionType');
     localStorage.removeItem('UserId');
     this.router.navigateByUrl('/login');
+   
+    
   }
 
 

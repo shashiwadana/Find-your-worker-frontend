@@ -32,14 +32,19 @@ export class LoginComponent implements OnInit {
       result => {
         console.log(result);
         if (result.status === 200 && result.message === 'Authorized') {
-          this.toastr.success('Login Success');
+          this.toastr.success('Login Success','Notice', {
+            timeOut: 6000,
+            positionClass: 'toast-top-right',
+          });
           localStorage.setItem('sessionEmail', result.result.sessionEmail);
           localStorage.setItem('sessionType', result.result.sessionType);
           localStorage.setItem('UserId', result.result.UserId);
           if (result.result.sessionType === 'worker') {
             this.router.navigate(['worker-dashboard']);
+            window.location.reload();
           } else {
             this.router.navigate(['worker-search']);
+            window.location.reload();
           }
         } else {
           this.form.reset();

@@ -25,6 +25,7 @@ export class AuthService {
 }
 logout() {
   return this.http.post('http://localhost:3000/user/logout', {});
+  
 }
 
 isLogged() {

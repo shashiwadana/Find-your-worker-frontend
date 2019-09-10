@@ -68,40 +68,20 @@
                 <a routerLink="/worker-dashboard"><strong>Dashboard</strong></a>
             </p>
             <br>
-            <button class="btn btn-warning btn-sm float-right" *ngIf="isWorker && !isEditing" (click)="setUpdating()">
+            <button class="btn btn-warning btn-sm " *ngIf="isWorker " (click)="setUpdating()">
                 Edit</button>
-            <button class="btn btn-warning btn-sm float-right" *ngIf="isEditing" (click)="updateProfile()">
+            <button class="btn btn-warning btn-sm " *ngIf="isWorker" (click)="updateProfile()">
                 Save</button>
-            <button class="btn btn-danger btn-sm float-right" *ngIf="isEditing" (click)="cancelUpdate()">
+            <button class="btn btn-danger btn-sm " *ngIf="isEditing" (click)="cancelUpdate()">
                 Cancel</button>
 
         </div>
         <br>
 
-
-        <div class="col-md-5">
-            
-            <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 1%;">
-                <div class="card-body scroll-box">
-                    <div class="scrollbar scrollbar-default">
-                        <div class="force-overflow"></div>
-                    </div>
-                    <p>Review1</p>
-                    <p>Review2</p>
-                    <p>Review3</p>
-                </div>
-            </div>
-
-        </div>
     </div>
     <br>
     <hr>
-    <div class="row" style="margin-right: 2%">
-        <h5>My Skills</h5>
-        <br><br>
-        <button class="btn btn-warning btn-sm float-left" style="margin-right: auto;" data-toggle="modal" data-target="#basicExample"
-            (click)="frame.show()" *ngIf="isWorker" mdbWavesEffect>Add Skill</button>
-    </div>
+   
     
 </div>
 
