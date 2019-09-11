@@ -7,6 +7,7 @@
         <!--Title-->
         <mdb-card-title>
           <h4>Book Later</h4>
+          
         </mdb-card-title>
         <!--button with data-->
         <li *ngFor="let availableW of availableWorkers">
@@ -57,6 +58,10 @@
         <!-- end button with data-->
         </li>
         <button class="btn btn-brown" (click)="sendRequest()" *ngIf = "isLogged && !noWorkers">Send Requests</button>
+       
       </mdb-card-body>
     </mdb-card>
+    <button  type="button" class="btn btn-outline-danger btn-rounded waves-effect" style="margin-left: 34%">Want to go back to search?
+      <a routerLink="/worker-search">Go To Search</a>
+    </button>
 </div>
