@@ -34,8 +34,7 @@ export class LaterComponent implements OnInit {
   availableWorkers: WorkerModel[];
   requestDetails: UserModel[];
   ngOnInit() {
-    //this.latitude = '6.9128';
-    //this.longitude = '79.8507';
+   
     
     this.sub = this.route.params.subscribe(params => {
       console.log(params);
@@ -43,8 +42,7 @@ export class LaterComponent implements OnInit {
       this.date = params['date'];
       this.startTime = params['startTime'];
       this.endTime = params['endTime'];
-     // console.log(this.latitude);
-     // console.log(this.longitude);
+     
       this.bookLaterService.getWorkers( localStorage.getItem('UserId'), this.location, this.jobTypeId, this.date, this.startTime, this.endTime, ).subscribe(
         res => {
           if(res.message ==="No workers available"){
@@ -81,7 +79,7 @@ export class LaterComponent implements OnInit {
         console.log(this.availableWorkers);
         console.log(res);
         window.location.reload();
-       // this.router.navigate(['/worker-search']);
+       
         this.toastr.success('Request Sent Successfully', '', {
           timeOut: 3000,
           positionClass: 'toast-top-right'
