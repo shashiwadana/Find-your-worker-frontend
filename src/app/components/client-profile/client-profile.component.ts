@@ -7,7 +7,8 @@ import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router'
 import { ToastrService } from 'ngx-toastr';
 import { identifierModuleUrl } from '@angular/compiler';
 import{ClientDataService} from '../../services/client-data.service';
-import{ClientProfileModel} from '../../models/clientProfile.model'
+import{ClientProfileModel} from '../../models/clientProfile.model';
+import{JobService} from '../../services/job.service'
 @Component({
   selector: 'app-client-profile',
   templateUrl: './client-profile.component.html',
@@ -25,6 +26,7 @@ export class ClientProfileComponent implements OnInit {
   LastName: string;
   ContactNumber:  string;
   BaseLocation: string;
+  BLocations: string[];
   ImgUrl: string;
   private sub: any;
   id: number;
@@ -36,6 +38,7 @@ export class ClientProfileComponent implements OnInit {
               private router:Router,
               private toaster:ToastrService,
               private fb:FormBuilder,
+              private loc:JobService,
   ) {
     this.form=this.fb.group({
       firstName:[''],
@@ -62,9 +65,6 @@ export class ClientProfileComponent implements OnInit {
         }
         
         
-        if(this.clientData[0].Rate==null){
-          this.clientData[0].Rate='';
-        }
 
       }
     );
@@ -89,6 +89,12 @@ export class ClientProfileComponent implements OnInit {
     else {
       this.form.disable();
     }
+    this.loc.getAllLocations().subscribe(
+      res=>{
+        this.BLocations=res.recordset;
+      }
+      
+    );
 
   }
   
