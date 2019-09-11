@@ -61,7 +61,11 @@
 
                 <div class="col-md-10">
                     <input type="text" id="clientLocation" formControlName="location" class="form-control mb-4 input-group-lg" placeholder="Location"
-                        value={{profile.BaseLocation}} [(ngModel)]="BaseLocation">
+                    list="locations" [(ngModel)]="BaseLocation">
+
+                    <datalist id="locations">
+                        <option *ngFor="let location of BLocations">{{location.DivisionalSecretary}}</option>
+                    </datalist>
                 </div>
             </div>
             <p style="margin-left: 25%"> Back to Dashboard?

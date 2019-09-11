@@ -9,6 +9,7 @@ import{AuthService} from '../../services/auth.service';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { identifierModuleUrl } from '@angular/compiler';
+import{JobService} from '../../services/job.service'
 //import{Job} from '../../models/worker-search.model'
 @Component({
   selector: 'app-worker-profile',
@@ -31,26 +32,19 @@ export class WorkerProfileComponent implements OnInit {
   LastName: string;
   ContactNumber:  string;
   BaseLocation: string;
+  BLocations: string[];
   ImgUrl: string;
   private sub: any;
   id: number;
-  //Status: number = 1;
-  //SkillObj;
-  //SkillTitle: string;
-  //SkillId: number;
-  //Description: string;
-  //HourlyRate: number;
-  //SysSkills: Job[];
-  //SysLocations: string[];
-  //addSkillForm;
-
+  
   constructor(private wdata:WokerDataService,
               private auth:AuthService,
               private route:ActivatedRoute,
               private router:Router,
               private toaster:ToastrService,
               private fb:FormBuilder,
-              //private dataService:Job
+              private loc:JobService,
+              
              
             ){
               this.form=this.fb.group({
@@ -108,6 +102,12 @@ export class WorkerProfileComponent implements OnInit {
     else {
       this.form.disable();
     }
+    this.loc.getAllLocations().subscribe(
+      res=>{
+        this.BLocations=res.recordset;
+      }
+      
+    );
 
   }
 
